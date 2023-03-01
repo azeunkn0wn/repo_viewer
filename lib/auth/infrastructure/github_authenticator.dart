@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:oauth2/oauth2.dart';
 import 'package:repo_viewer/auth/domain/auth_failure.dart';
 import 'package:repo_viewer/auth/infrastructure/credentials_storage/credentials_storage.dart';
-import 'package:repo_viewer/core/dio_extensions.dart';
+import 'package:repo_viewer/core/infrastructure/dio_extensions.dart';
 
 import 'package:repo_viewer/core/shared/encoders.dart';
 
