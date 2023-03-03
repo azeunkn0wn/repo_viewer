@@ -5,7 +5,10 @@ import 'package:repo_viewer/auth/application/auth_notifier.dart';
 import 'package:repo_viewer/auth/shared/provider.dart';
 import 'package:repo_viewer/core/presentation/routes/app_router.gr.dart';
 
+import 'package:repo_viewer/core/shared/providers.dart';
+
 final initializationProvider = FutureProvider((ref) async {
+  ref.read(sembastProvider).init();
   final authNotifier = ref.read(authNotifierProvider.notifier);
   await authNotifier.checkAndUpdateAuthStatus();
   return unit;
