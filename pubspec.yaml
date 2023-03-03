@@ -20,7 +20,10 @@ dependencies:
   http: ^0.13.5
   material_design_icons_flutter: ^6.0.7096
   oauth2: ^2.0.1
-  webview_flutter: ^4.0.5
+  path: ^1.8.2
+  path_provider: ^2.0.13
+  sembast: ^3.4.0+6
+  webview_flutter: ^4.0.6
   webview_flutter_android: ^3.3.1
   webview_flutter_wkwebview: ^3.1.1
   json_annotation: ^4.8.0
