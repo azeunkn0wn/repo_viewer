@@ -20,4 +20,9 @@ class UserDTO with _$UserDTO {
         name: _.name,
         avatarUrl: _.avatarUrl,
       );
+
+  User toDomain() => User(
+        name: name,
+        avatarUrl: avatarUrl,
+      );
 }
