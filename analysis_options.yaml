@@ -2,6 +2,9 @@
 include: package:lint/analysis_options.yaml
 
 analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
   errors:
     missing_return: error
     must_be_immutable: error
@@ -10,3 +13,4 @@ analyzer:
     parameter_assignments: error
     sort_unnamed_constructors_first: ignore
     sort_pub_dependencies: ignore
+    invalid_annotation_target: ignore
