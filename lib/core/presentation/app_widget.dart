@@ -11,8 +11,8 @@ final initializationProvider = FutureProvider((ref) async {
   return unit;
 });
 
-class MainApp extends ConsumerWidget {
-  MainApp({super.key});
+class AppWidget extends ConsumerWidget {
+  AppWidget({super.key});
 
   final appRouter = AppRouter();
 
