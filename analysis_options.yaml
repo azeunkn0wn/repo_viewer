@@ -14,3 +14,4 @@ analyzer:
     sort_unnamed_constructors_first: ignore
     sort_pub_dependencies: ignore
     invalid_annotation_target: ignore
+    avoid_unused_constructor_parameters: ignore
