@@ -34,7 +34,7 @@ class GithubAuthenticator {
   static final tokenEndpoint =
       Uri.parse('https://github.com/login/oauth/access_token');
   static final revocationEndpoint =
-      Uri.parse('https://api.github.com/applications/{$clientId}/token');
+      Uri.parse('https://api.github.com/applications/$clientId/token');
 
   static final redirectUrl = Uri.parse('http://localhost:3000/callback');
 
@@ -98,9 +98,10 @@ class GithubAuthenticator {
 
     final usernameAndPassword =
         stringToBase64.encode('$clientId:$clientSecret');
+
     try {
       try {
-        _dio.deleteUri(
+        await _dio.deleteUri(
           revocationEndpoint,
           data: {'access_token': accessToken},
           options: Options(
