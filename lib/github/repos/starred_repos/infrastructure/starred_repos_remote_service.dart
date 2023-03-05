@@ -21,7 +21,7 @@ class StarredReposRemoteService {
     int page,
   ) async {
     final String token = dotenv.get('GITHUB_ACCESS_TOKEN');
-    const accept = 'application/vnd.github.v3+json';
+    const accept = 'application/vnd.github.v3.html+json';
     final requestUri = Uri.https(
       'api.github.com',
       '/user/starred',
