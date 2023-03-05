@@ -5,8 +5,8 @@ import 'package:repo_viewer/core/infrastructure/network_exceptions.dart';
 import 'package:repo_viewer/github/core/domain/github_failure.dart';
 import 'package:repo_viewer/github/core/domain/github_repo.dart';
 import 'package:repo_viewer/github/infrastructure/github_repo_dto.dart';
-import 'package:repo_viewer/github/repos/searched_repos/infrastructure/starred_repos_local_service.dart';
-import 'package:repo_viewer/github/repos/searched_repos/infrastructure/starred_repos_remote_service.dart';
+import 'package:repo_viewer/github/repos/starred_repos/infrastructure/starred_repos_local_service.dart';
+import 'package:repo_viewer/github/repos/starred_repos/infrastructure/starred_repos_remote_service.dart';
 
 class StarredReposRepository {
   final StarredReposRemoteService _remoteService;
