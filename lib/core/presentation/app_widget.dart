@@ -8,10 +8,17 @@ import 'package:repo_viewer/core/presentation/routes/app_router.gr.dart';
 
 import 'package:repo_viewer/core/shared/providers.dart';
 
-final initializationProvider = FutureProvider((ref) async {
+final initializationProvider = FutureProvider<Unit>((ref) async {
   await ref.read(sembastProvider).init();
   ref.read(dioProvider)
-    ..options = BaseOptions(headers: {})
+    ..options = BaseOptions(
+      headers: {
+        'Accept': 'application/vnd.github.v3.html+json',
+      },
+      // TODO: if dio still throws SocketException after 304 response
+      // validateStatus: (status) =>
+      //     status != null && status >= 200 && status < 400,
+    )
     ..interceptors.add(ref.read(oAuth2InterceptorProvider));
   final authNotifier = ref.read(authNotifierProvider.notifier);
   await authNotifier.checkAndUpdateAuthStatus();
