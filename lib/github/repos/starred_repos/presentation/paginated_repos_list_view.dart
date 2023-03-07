@@ -16,12 +16,37 @@ class PaginatedReposListView extends StatefulWidget {
 }
 
 class _PaginatedReposListViewState extends State<PaginatedReposListView> {
+  bool canLoadNextPage = false;
   @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
         final state = ref.watch(starredReposNotifierProvider);
-        return _PaginatedListVIew(state: state);
+        ref.listen<StarredReposState>(starredReposNotifierProvider, (_, state) {
+          state.map(
+            initial: (_) => canLoadNextPage = true,
+            loadInProgress: (_) => canLoadNextPage = false,
+            loadSuccess: (_) => canLoadNextPage = _.isNextPageAvailable,
+            loadFailure: (_) => canLoadNextPage = false,
+          );
+        });
+        return NotificationListener<ScrollNotification>(
+          onNotification: (notification) {
+            final metrics = notification.metrics;
+            final limit =
+                metrics.maxScrollExtent - metrics.viewportDimension / 3;
+
+            if (canLoadNextPage && metrics.pixels >= limit) {
+              canLoadNextPage = false;
+              ref
+                  .read(starredReposNotifierProvider.notifier)
+                  .getNextStarredReposPage();
+              return true;
+            }
+            return false;
+          },
+          child: _PaginatedListVIew(state: state),
+        );
       },
     );
   }
