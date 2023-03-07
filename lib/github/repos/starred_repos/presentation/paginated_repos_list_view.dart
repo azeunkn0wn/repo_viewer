@@ -6,11 +6,16 @@ import 'package:repo_viewer/github/repos/starred_repos/presentation/loading_repo
 import 'package:repo_viewer/github/repos/starred_repos/presentation/repo_tile.dart';
 import 'package:repo_viewer/github/shared/providers.dart';
 
-class PaginatedReposListView extends StatelessWidget {
+class PaginatedReposListView extends StatefulWidget {
   const PaginatedReposListView({
     super.key,
   });
 
+  @override
+  State<PaginatedReposListView> createState() => _PaginatedReposListViewState();
+}
+
+class _PaginatedReposListViewState extends State<PaginatedReposListView> {
   @override
   Widget build(BuildContext context) {
     return Consumer(
