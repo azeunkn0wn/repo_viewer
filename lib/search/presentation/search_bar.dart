@@ -46,6 +46,9 @@ class _SearchBarState extends ConsumerState<SearchBar> {
       ),
       hint: widget.hint,
       actions: [
+        FloatingSearchBarAction.searchToClear(
+          showIfClosed: false,
+        ),
         FloatingSearchBarAction(
           child: IconButton(
             icon: const Icon(MdiIcons.logoutVariant),
