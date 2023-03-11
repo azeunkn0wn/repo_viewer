@@ -47,6 +47,7 @@ class PaginatedReposNotifier extends StateNotifier<PaginatedReposState> {
     );
     final failureOrRepos = await getter(_page);
 
+    if (!mounted) return;
     state = failureOrRepos.fold(
       (l) => PaginatedReposState.loadFailure(state.repos, l),
       (r) {
