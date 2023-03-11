@@ -36,16 +36,14 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
           AutoRouter.of(context)
               .push(SearchedReposRoute(searchTerm: searchTerm));
         },
-        body: SafeArea(
-          child: PaginatedReposListView(
-            paginatedReposNotifierProvider: starredReposNotifierProvider,
-            getNextPage: (ref, context) {
-              ref
-                  .read(starredReposNotifierProvider.notifier)
-                  .getNextStarredReposPage();
-            },
-            noResultMessage: "No starred repos found",
-          ),
+        body: PaginatedReposListView(
+          paginatedReposNotifierProvider: starredReposNotifierProvider,
+          getNextPage: (ref, context) {
+            ref
+                .read(starredReposNotifierProvider.notifier)
+                .getNextStarredReposPage();
+          },
+          noResultMessage: "No starred repos found",
         ),
         onSignOutButtonPressed: (String searchTerm) {
           ref.read(authNotifierProvider.notifier).signOut();
