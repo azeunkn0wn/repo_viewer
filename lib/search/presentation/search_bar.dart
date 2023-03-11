@@ -23,15 +23,24 @@ class SearchBar extends ConsumerStatefulWidget {
 }
 
 class _SearchBarState extends ConsumerState<SearchBar> {
+  late final FloatingSearchBarController _controller;
   @override
   void initState() {
     super.initState();
+    _controller = FloatingSearchBarController();
     ref.read(searchHistoryNotifierProvider.notifier).watchSearchTerms();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return FloatingSearchBar(
+      controller: _controller,
       body: FloatingSearchBarScrollNotifier(child: widget.body),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,8 +67,37 @@ class _SearchBarState extends ConsumerState<SearchBar> {
           ),
         )
       ],
+      onSubmitted: (query) {
+        widget.onShouldNavigateToResultPage(query);
+        ref.read(searchHistoryNotifierProvider.notifier).addSearchTerm(query);
+        _controller.close();
+      },
       builder: (context, transition) {
-        return Container();
+        return Consumer(
+          builder: (context, ref, child) {
+            final searchHistory = ref.watch(searchHistoryNotifierProvider);
+
+            return searchHistory.map(
+              data: (history) {
+                return Column(
+                  children: history.value
+                      .map(
+                        (term) => ListTile(
+                          title: Text(term),
+                        ),
+                      )
+                      .toList(),
+                );
+              },
+              loading: (_) => const ListTile(
+                title: LinearProgressIndicator(),
+              ),
+              error: (_) => ListTile(
+                title: Text('Very unexpected error ${_.error}'),
+              ),
+            );
+          },
+        );
       },
     );
   }
