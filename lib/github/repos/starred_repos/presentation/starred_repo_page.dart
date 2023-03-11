@@ -1,10 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-
 import 'package:repo_viewer/auth/shared/providers.dart';
+import 'package:repo_viewer/core/presentation/routes/app_router.gr.dart';
 import 'package:repo_viewer/github/repos/core/presentation/paginated_repos_list_view.dart';
 import 'package:repo_viewer/github/shared/providers.dart';
+import 'package:repo_viewer/search/presentation/search_bar.dart';
 
 class StarredReposPage extends ConsumerStatefulWidget {
   const StarredReposPage({super.key});
@@ -28,26 +29,27 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Starred Repos'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              ref.read(authNotifierProvider.notifier).signOut();
-            },
-            icon: const Icon(MdiIcons.logoutVariant),
-          ),
-        ],
-      ),
-      body: PaginatedReposListView(
-        paginatedReposNotifierProvider: starredReposNotifierProvider,
-        getNextPage: (ref, context) {
-          ref
-              .read(starredReposNotifierProvider.notifier)
-              .getNextStarredReposPage();
+      body: SearchBar(
+        title: 'Starred repositories',
+        hint: 'Search all repositories...',
+        onShouldNavigateToResultPage: (searchTerm) {
+          AutoRouter.of(context)
+              .push(SearchedReposRoute(searchTerm: searchTerm));
         },
-        noResultMessage: "No starred repos found",
+        body: SafeArea(
+          child: PaginatedReposListView(
+            paginatedReposNotifierProvider: starredReposNotifierProvider,
+            getNextPage: (ref, context) {
+              ref
+                  .read(starredReposNotifierProvider.notifier)
+                  .getNextStarredReposPage();
+            },
+            noResultMessage: "No starred repos found",
+          ),
+        ),
+        onSignOutButtonPressed: (String searchTerm) {
+          ref.read(authNotifierProvider.notifier).signOut();
+        },
       ),
     );
   }
