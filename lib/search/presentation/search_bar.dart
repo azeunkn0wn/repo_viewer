@@ -9,7 +9,7 @@ class SearchBar extends ConsumerStatefulWidget {
   final String title;
   final String hint;
   final void Function(String searchTerm) onShouldNavigateToResultPage;
-  final void Function(String searchTerm) onSignOutButtonPressed;
+  final void Function() onSignOutButtonPressed;
   const SearchBar({
     required this.body,
     required this.title,

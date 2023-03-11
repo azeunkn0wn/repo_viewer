@@ -45,7 +45,7 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
           },
           noResultMessage: "No starred repos found",
         ),
-        onSignOutButtonPressed: (String searchTerm) {
+        onSignOutButtonPressed: () {
           ref.read(authNotifierProvider.notifier).signOut();
         },
       ),
