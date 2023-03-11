@@ -42,7 +42,7 @@ class _SearchedReposPageState extends ConsumerState<SearchedReposPage> {
         ],
       ),
       body: PaginatedReposListView(
-        paginatedReposNotifierProvider: starredReposNotifierProvider,
+        paginatedReposNotifierProvider: searchedReposNotifierProvider,
         getNextPage: (ref, context) {
           ref
               .read(searchedReposNotifierProvider.notifier)
