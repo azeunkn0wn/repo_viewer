@@ -31,7 +31,7 @@ class _SearchBarState extends ConsumerState<SearchBar> {
   @override
   Widget build(BuildContext context) {
     return FloatingSearchBar(
-      body: widget.body,
+      body: FloatingSearchBarScrollNotifier(child: widget.body),
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
