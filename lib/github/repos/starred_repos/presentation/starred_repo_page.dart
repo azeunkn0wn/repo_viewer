@@ -36,6 +36,9 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
           AutoRouter.of(context)
               .push(SearchedReposRoute(searchTerm: searchTerm));
         },
+        onSignOutButtonPressed: () {
+          ref.read(authNotifierProvider.notifier).signOut();
+        },
         body: PaginatedReposListView(
           paginatedReposNotifierProvider: starredReposNotifierProvider,
           getNextPage: (ref, context) {
@@ -45,9 +48,6 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
           },
           noResultMessage: "No starred repos found",
         ),
-        onSignOutButtonPressed: () {
-          ref.read(authNotifierProvider.notifier).signOut();
-        },
       ),
     );
   }
