@@ -31,18 +31,6 @@ class _SearchedReposPageState extends ConsumerState<SearchedReposPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   centerTitle: true,
-      //   title: Text(widget.searchTerm),
-      //   actions: [
-      //     IconButton(
-      //       onPressed: () {
-      //         ref.read(authNotifierProvider.notifier).signOut();
-      //       },
-      //       icon: const Icon(MdiIcons.logoutVariant),
-      //     ),
-      //   ],
-      // ),
       body: SearchBar(
         title: widget.searchTerm,
         hint: 'Search all repositories...',
