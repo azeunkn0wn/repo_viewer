@@ -1,8 +1,9 @@
+import 'dart:io';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-
 import 'package:repo_viewer/search/shared/providers.dart';
 
 class SearchBar extends ConsumerStatefulWidget {
@@ -70,6 +71,22 @@ class _SearchBarState extends ConsumerState<SearchBar> {
         ],
       ),
       hint: widget.hint,
+      automaticallyImplyBackButton: false,
+      leadingActions: [
+        if (AutoRouter.of(context).canPop())
+          if (Platform.isIOS || Platform.isMacOS)
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              splashRadius: 18,
+              onPressed: () => AutoRouter.of(context).pop(),
+            )
+          else
+            IconButton(
+              icon: const Icon(Icons.arrow_back),
+              splashRadius: 18,
+              onPressed: () => AutoRouter.of(context).pop(),
+            )
+      ],
       actions: [
         FloatingSearchBarAction.searchToClear(
           showIfClosed: false,
