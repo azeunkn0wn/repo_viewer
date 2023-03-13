@@ -4,18 +4,33 @@ import 'package:sembast/sembast.dart';
 import 'package:sembast/timestamp.dart';
 
 class RepoDetailLocalService {
-  RepoDetailLocalService(this._sembastDatabase);
-
   static const cacheSize = 50;
 
   final SembastDatabase _sembastDatabase;
   final _store = stringMapStoreFactory.store('repoDetails');
+  RepoDetailLocalService(
+    this._sembastDatabase,
+  );
 
   Future<void> upsertRepoDetail(GithubRepoDetailDTO githubRepoDetailDTO) async {
     await _store.record(githubRepoDetailDTO.fullName).put(
           _sembastDatabase.instance,
           githubRepoDetailDTO.toSembast(),
         );
+
+    final keys = await _store.findKeys(
+      _sembastDatabase.instance,
+      finder: Finder(
+        sortOrders: [SortOrder(GithubRepoDetailDTO.lastUsedFieldName, false)],
+      ),
+    );
+    if (keys.length > cacheSize) {
+      final keysToRemove = keys.sublist(cacheSize);
+
+      for (final key in keysToRemove) {
+        await _store.record(key).delete(_sembastDatabase.instance);
+      }
+    }
   }
 
   Future<GithubRepoDetailDTO?> getRepoDetail(String fullRepoName) async {
