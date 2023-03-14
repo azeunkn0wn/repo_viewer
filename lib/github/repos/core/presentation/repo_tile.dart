@@ -1,5 +1,8 @@
+import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:repo_viewer/core/presentation/routes/app_router.gr.dart';
 import 'package:repo_viewer/github/core/domain/github_repo.dart';
 
 class RepoTile extends StatelessWidget {
@@ -35,7 +38,9 @@ class RepoTile extends StatelessWidget {
         ],
       ),
       onTap: () {
-        //TODO: Open the detail page
+        AutoRouter.of(context).push(
+          RepoDetailRoute(repo: repo),
+        );
       },
     );
   }
