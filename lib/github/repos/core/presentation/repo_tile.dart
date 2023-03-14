@@ -1,4 +1,3 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -21,11 +20,14 @@ class RepoTile extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
-      leading: CircleAvatar(
-        backgroundImage: CachedNetworkImageProvider(
-          repo.owner.avatarUrlSmall,
+      leading: Hero(
+        tag: repo,
+        child: CircleAvatar(
+          backgroundImage: CachedNetworkImageProvider(
+            repo.owner.avatarUrlSmall,
+          ),
+          backgroundColor: Colors.transparent,
         ),
-        backgroundColor: Colors.transparent,
       ),
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,
