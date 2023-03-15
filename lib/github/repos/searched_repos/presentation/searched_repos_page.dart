@@ -48,7 +48,7 @@ class _SearchedReposPageState extends ConsumerState<SearchedReposPage> {
           getNextPage: (ref, context) {
             ref
                 .read(searchedReposNotifierProvider.notifier)
-                .getNextStarredReposPage(widget.searchTerm);
+                .getNextSearchedReposPage(widget.searchTerm);
           },
           noResultMessage: "Nothing found. Try another search terms",
         ),
