@@ -47,61 +47,71 @@ class _RepoDetailPageState extends ConsumerState<RepoDetailPage> {
       },
     );
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            Hero(
-              tag: widget.repo.fullName,
-              child: CircleAvatar(
-                radius: 16,
-                backgroundImage: CachedNetworkImageProvider(
-                  widget.repo.owner.avatarUrlSmall,
+    return WillPopScope(
+      onWillPop: () async {
+        if (state.hasStarredStatusChanged) {
+          ref
+              .read(starredReposNotifierProvider.notifier)
+              .getFirstStarredReposPage();
+        }
+        return true;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Row(
+            children: [
+              Hero(
+                tag: widget.repo.fullName,
+                child: CircleAvatar(
+                  radius: 16,
+                  backgroundImage: CachedNetworkImageProvider(
+                    widget.repo.owner.avatarUrlSmall,
+                  ),
+                  backgroundColor: Colors.transparent,
                 ),
-                backgroundColor: Colors.transparent,
               ),
+              const SizedBox(width: 8.0),
+              Flexible(
+                child: Text(
+                  widget.repo.name,
+                ),
+              )
+            ],
+          ),
+          actions: [
+            state.maybeMap(
+              orElse: () => Shimmer.fromColors(
+                baseColor: Colors.grey.shade400,
+                highlightColor: Colors.grey.shade300,
+                child: IconButton(
+                  icon: const Icon(Icons.star),
+                  onPressed: null,
+                  disabledColor: Theme.of(context).iconTheme.color,
+                ),
+              ),
+              loadSuccess: (state) {
+                return IconButton(
+                  icon: Icon(
+                    !state.repoDetail.isFresh
+                        ? MdiIcons.starRemoveOutline
+                        : state.repoDetail.entity?.starred == true
+                            ? Icons.star
+                            : Icons.star_outline,
+                  ),
+                  onPressed: !state.repoDetail.isFresh
+                      ? null
+                      : () {
+                          ref
+                              .read(repoDetailNotifierProvider.notifier)
+                              .switchStarredStatus(state.repoDetail.entity!);
+                        },
+                );
+              },
             ),
-            const SizedBox(width: 8.0),
-            Flexible(
-              child: Text(
-                widget.repo.name,
-              ),
-            )
           ],
         ),
-        actions: [
-          state.maybeMap(
-            orElse: () => Shimmer.fromColors(
-              baseColor: Colors.grey.shade400,
-              highlightColor: Colors.grey.shade300,
-              child: IconButton(
-                icon: const Icon(Icons.star),
-                onPressed: null,
-                disabledColor: Theme.of(context).iconTheme.color,
-              ),
-            ),
-            loadSuccess: (state) {
-              return IconButton(
-                icon: Icon(
-                  !state.repoDetail.isFresh
-                      ? MdiIcons.starRemoveOutline
-                      : state.repoDetail.entity?.starred == true
-                          ? Icons.star
-                          : Icons.star_outline,
-                ),
-                onPressed: !state.repoDetail.isFresh
-                    ? null
-                    : () {
-                        ref
-                            .read(repoDetailNotifierProvider.notifier)
-                            .switchStarredStatus(state.repoDetail.entity!);
-                      },
-              );
-            },
-          ),
-        ],
+        body: Container(),
       ),
-      body: Container(),
     );
   }
 }
