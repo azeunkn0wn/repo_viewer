@@ -22,7 +22,7 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
     Future.microtask(
       () => ref
           .read(starredReposNotifierProvider.notifier)
-          .getNextStarredReposPage(),
+          .getFirstStarredReposPage(),
     );
   }
 
