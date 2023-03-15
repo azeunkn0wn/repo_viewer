@@ -56,8 +56,16 @@ class AppWidget extends ConsumerWidget {
     });
     return MaterialApp.router(
       title: 'Repo Viewer',
+      theme: _setUpThemeData(),
       routerDelegate: appRouter.delegate(),
       routeInformationParser: appRouter.defaultRouteParser(),
     );
   }
+}
+
+ThemeData _setUpThemeData() {
+  return ThemeData(
+    colorScheme: const ColorScheme.light()
+        .copyWith(primary: Colors.grey.shade50, onPrimary: Colors.black),
+  );
 }
