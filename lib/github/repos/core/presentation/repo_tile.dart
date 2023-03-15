@@ -21,7 +21,7 @@ class RepoTile extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
       ),
       leading: Hero(
-        tag: repo,
+        tag: repo.fullName,
         child: CircleAvatar(
           backgroundImage: CachedNetworkImageProvider(
             repo.owner.avatarUrlSmall,
