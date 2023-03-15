@@ -4,9 +4,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:repo_viewer/core/presentation/toast.dart';
 import 'package:repo_viewer/github/core/domain/github_repo.dart';
+import 'package:repo_viewer/github/core/presentation/no_results_displayed.dart';
 import 'package:repo_viewer/github/core/shared/providers.dart';
 import 'package:repo_viewer/github/detail/application/repo_detail_notifier.dart';
+import 'package:repo_viewer/github/detail/presentation/css.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
+import 'package:webview_flutter/webview_flutter.dart';
 
 class RepoDetailPage extends ConsumerStatefulWidget {
   final GithubRepo repo;
@@ -17,6 +21,8 @@ class RepoDetailPage extends ConsumerStatefulWidget {
 }
 
 class _RepoDetailPageState extends ConsumerState<RepoDetailPage> {
+  late final WebViewController _controller;
+
   @override
   void initState() {
     super.initState();
@@ -25,6 +31,21 @@ class _RepoDetailPageState extends ConsumerState<RepoDetailPage> {
           .read(repoDetailNotifierProvider.notifier)
           .getRepoDetail(widget.repo.fullName),
     );
+
+    _controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onNavigationRequest: (navReq) {
+            if (navReq.url.startsWith('data:')) {
+              return NavigationDecision.navigate;
+            } else {
+              url_launcher.launchUrl(Uri.parse(navReq.url));
+              return NavigationDecision.prevent;
+            }
+          },
+        ),
+      );
   }
 
   @override
@@ -110,8 +131,43 @@ class _RepoDetailPageState extends ConsumerState<RepoDetailPage> {
             ),
           ],
         ),
-        body: Container(),
+        body: state.map(
+          initial: (_) => Container(),
+          loadInProgress: (_) => const Center(
+            child: CircularProgressIndicator(),
+          ),
+          loadFailure: (_) => Center(
+            child: Text(_.failure.toString()),
+          ),
+          loadSuccess: (_) {
+            if (_.repoDetail.entity == null) {
+              return const NoResultsDisplay(message: "Nothing to show");
+            } else {
+              _controller.loadHtmlString(
+                '''
+                <html>
+                  <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  </head>
+                <body>
+                  ${_.repoDetail.entity!.html}
+                </body>
+                </html>
+                  $style
+              ''',
+              );
+
+              return WebViewWidget(controller: _controller);
+            }
+          },
+        ),
       ),
     );
   }
+
+  final style = """
+            <style>
+              $css
+            </style>
+            """;
 }
