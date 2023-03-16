@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.repo_viewer">
    <application
-        android:label="repo_viewer"
+        android:label="Repo Viewer"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
