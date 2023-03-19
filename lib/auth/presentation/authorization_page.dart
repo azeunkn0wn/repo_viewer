@@ -51,7 +51,7 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
 
   @override
   Widget build(BuildContext context) {
-    // cookieManager.clearCookies();
+    cookieManager.clearCookies();
 
     _controller
       ..loadRequest(widget.authorizationUrl)
