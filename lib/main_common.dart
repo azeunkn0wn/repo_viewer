@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:repo_viewer/config_reader.dart';
+
 import 'package:repo_viewer/core/presentation/app_widget.dart';
 
-void main() async {
+Future<void> mainCommon(String env) async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load();
+  await ConfigReader.initialize();
+
+  await dotenv.load(fileName: ConfigReader.getEnv());
 
   runApp(ProviderScope(child: AppWidget()));
 }
