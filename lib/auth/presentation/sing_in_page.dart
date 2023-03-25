@@ -60,7 +60,7 @@ class SignInPage extends ConsumerWidget {
                       backgroundColor: MaterialStateProperty.all(Colors.green),
                     ),
                     child: const Text('Sign In'),
-                  )
+                  ),
                 ],
               ),
             ),
