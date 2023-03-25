@@ -9,7 +9,7 @@ Future<void> mainCommon(String env) async {
   WidgetsFlutterBinding.ensureInitialized();
   await ConfigReader.initialize();
 
-  await dotenv.load(fileName: ConfigReader.getEnv());
+  await dotenv.load(fileName: ConfigReader.getEnv(env));
 
   runApp(ProviderScope(child: AppWidget()));
 }

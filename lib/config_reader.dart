@@ -12,7 +12,7 @@ abstract class ConfigReader {
     _config = json.decode(configString) as Map<String, dynamic>;
   }
 
-  static String getEnv() {
-    return _config['env'] as String;
+  static String getEnv(String env) {
+    return '${_config['env']}.$env';
   }
 }
