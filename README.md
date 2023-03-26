@@ -8,7 +8,7 @@ More info at [Reso Coder](https://resocoder.com/fdb) or at [Reso Coder Academy](
 
 ## Architecture by Reso Coder
 
-<img src="doc/architecture_by_resocoder.png" width="480">
+<img src="https://github.com/azeunkn0wn/repo_viewer/blob/65e25828040b46e2a967708f4bc44efff96064c8/doc/architecture_by_resocoder.png" width="480">
 
 ## Setup
 
@@ -95,5 +95,5 @@ The course does not include testing, but I will add some tests in the future.
 
 ## Screenshots
 
-<img src="doc/Screenshot1.png" width="480">
-<img src="doc/Screenshot2.png" width="480">
+<img src="https://github.com/azeunkn0wn/repo_viewer/blob/65e25828040b46e2a967708f4bc44efff96064c8/doc/Screenshot1.png" width="480">
+<img src="https://github.com/azeunkn0wn/repo_viewer/blob/65e25828040b46e2a967708f4bc44efff96064c8/doc/Screenshot2.png" width="480">
