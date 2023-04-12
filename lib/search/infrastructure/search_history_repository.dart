@@ -48,7 +48,7 @@ class SearchHistoryRepository {
     );
 
     if (existingTermKey != null) {
-      putSearchTermFirst(term);
+      await putSearchTermFirst(term);
       return;
     }
     await _store.add(dbClient, term);
