@@ -44,6 +44,9 @@ dev_dependencies:
   freezed: ^2.3.2
   json_serializable: ^6.6.1
   lint: ^2.0.1
+  integration_test:
+    sdk: flutter
+  mockito: ^5.4.0
 
 flutter:
   uses-material-design: true
