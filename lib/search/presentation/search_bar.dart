@@ -119,7 +119,7 @@ class _SearchBarState extends ConsumerState<SearchBar> {
               final searchHistory = ref.watch(searchHistoryNotifierProvider);
               return searchHistory.map(
                 data: (history) {
-                  if (_controller.query.isEmpty && history.value.isEmpty) {
+                  if (_controller.query.isEmpty && history.terms.isEmpty) {
                     return Container(
                       height: 56,
                       alignment: Alignment.center,
@@ -128,7 +128,7 @@ class _SearchBarState extends ConsumerState<SearchBar> {
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     );
-                  } else if (history.value.isEmpty) {
+                  } else if (history.terms.isEmpty) {
                     return ListTile(
                       title: Text(_controller.query),
                       leading: const Icon(Icons.search),
@@ -137,8 +137,9 @@ class _SearchBarState extends ConsumerState<SearchBar> {
                       },
                     );
                   }
+
                   return Column(
-                    children: history.value
+                    children: history.terms
                         .map(
                           (term) => ListTile(
                             title: Text(
