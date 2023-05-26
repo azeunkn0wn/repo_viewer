@@ -29,7 +29,7 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SearchBar(
+      body: CustomSearchBar(
         title: 'Starred repositories',
         hint: 'Search all repositories...',
         onShouldNavigateToResultPage: (searchTerm) {
