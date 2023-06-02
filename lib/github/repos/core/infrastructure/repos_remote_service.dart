@@ -3,9 +3,9 @@ import 'package:repo_viewer/core/infrastructure/dio_extensions.dart';
 
 import 'package:repo_viewer/core/infrastructure/network_exceptions.dart';
 import 'package:repo_viewer/core/infrastructure/remote_response.dart';
-import 'package:repo_viewer/github/infrastructure/github_headers.dart';
-import 'package:repo_viewer/github/infrastructure/github_headers_cache.dart';
-import 'package:repo_viewer/github/infrastructure/github_repo_dto.dart';
+import 'package:repo_viewer/github/core/infrastructure/github_headers.dart';
+import 'package:repo_viewer/github/core/infrastructure/github_headers_cache.dart';
+import 'package:repo_viewer/github/core/infrastructure/github_repo_dto.dart';
 
 abstract class ReposRemoteService {
   final Dio dio;

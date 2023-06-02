@@ -1,5 +1,5 @@
 import 'package:repo_viewer/core/infrastructure/sembast_database.dart';
-import 'package:repo_viewer/github/infrastructure/github_headers.dart';
+import 'package:repo_viewer/github/core/infrastructure/github_headers.dart';
 import 'package:sembast/sembast.dart';
 
 class GithubHeadersCache {
