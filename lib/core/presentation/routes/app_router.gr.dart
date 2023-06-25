@@ -1,52 +1,25 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i7;
-import 'package:flutter/material.dart' as _i8;
+part of 'app_router.dart';
 
-import '../../../auth/presentation/authorization_page.dart' as _i3;
-import '../../../auth/presentation/sing_in_page.dart' as _i2;
-import '../../../github/core/domain/github_repo.dart' as _i9;
-import '../../../github/detail/presentation/repo_detail_page.dart' as _i6;
-import '../../../github/repos/searched_repos/presentation/searched_repos_page.dart'
-    as _i5;
-import '../../../github/repos/starred_repos/presentation/starred_repo_page.dart'
-    as _i4;
-import '../../../splash/presentation/splash_page.dart' as _i1;
-
-class AppRouter extends _i7.RootStackRouter {
-  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+abstract class _$AppRouter extends RootStackRouter {
+  // ignore: unused_element
+  _$AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i7.PageFactory> pagesMap = {
-    SplashRoute.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const _i1.SplashPage(),
-      );
-    },
-    SignInRoute.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const _i2.SignInPage(),
-      );
-    },
+  final Map<String, PageFactory> pagesMap = {
     AuthorizationRoute.name: (routeData) {
       final args = routeData.argsAs<AuthorizationRouteArgs>();
-      return _i7.MaterialPageX<dynamic>(
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i3.AuthorizationPage(
+        child: AuthorizationPage(
           key: args.key,
           authorizationUrl: args.authorizationUrl,
           onAuthorizationCodeRedirectAttempt:
@@ -54,106 +27,70 @@ class AppRouter extends _i7.RootStackRouter {
         ),
       );
     },
-    StarredReposRoute.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
+    SignInRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.StarredReposPage(),
-      );
-    },
-    SearchedReposRoute.name: (routeData) {
-      final args = routeData.argsAs<SearchedReposRouteArgs>();
-      return _i7.MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: _i5.SearchedReposPage(
-          key: args.key,
-          searchTerm: args.searchTerm,
-        ),
+        child: const SignInPage(),
       );
     },
     RepoDetailRoute.name: (routeData) {
       final args = routeData.argsAs<RepoDetailRouteArgs>();
-      return _i7.MaterialPageX<dynamic>(
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i6.RepoDetailPage(
+        child: RepoDetailPage(
           key: args.key,
           repo: args.repo,
         ),
       );
     },
+    SearchedReposRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchedReposRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchedReposPage(
+          key: args.key,
+          searchTerm: args.searchTerm,
+        ),
+      );
+    },
+    StarredReposRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const StarredReposPage(),
+      );
+    },
+    SplashRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SplashPage(),
+      );
+    },
   };
-
-  @override
-  List<_i7.RouteConfig> get routes => [
-        _i7.RouteConfig(
-          SplashRoute.name,
-          path: '/',
-        ),
-        _i7.RouteConfig(
-          SignInRoute.name,
-          path: '/sign-in',
-        ),
-        _i7.RouteConfig(
-          AuthorizationRoute.name,
-          path: '/auth',
-        ),
-        _i7.RouteConfig(
-          StarredReposRoute.name,
-          path: '/starred',
-        ),
-        _i7.RouteConfig(
-          SearchedReposRoute.name,
-          path: '/searched',
-        ),
-        _i7.RouteConfig(
-          RepoDetailRoute.name,
-          path: '/detail',
-        ),
-      ];
 }
 
 /// generated route for
-/// [_i1.SplashPage]
-class SplashRoute extends _i7.PageRouteInfo<void> {
-  const SplashRoute()
-      : super(
-          SplashRoute.name,
-          path: '/',
-        );
-
-  static const String name = 'SplashRoute';
-}
-
-/// generated route for
-/// [_i2.SignInPage]
-class SignInRoute extends _i7.PageRouteInfo<void> {
-  const SignInRoute()
-      : super(
-          SignInRoute.name,
-          path: '/sign-in',
-        );
-
-  static const String name = 'SignInRoute';
-}
-
-/// generated route for
-/// [_i3.AuthorizationPage]
-class AuthorizationRoute extends _i7.PageRouteInfo<AuthorizationRouteArgs> {
+/// [AuthorizationPage]
+class AuthorizationRoute extends PageRouteInfo<AuthorizationRouteArgs> {
   AuthorizationRoute({
-    _i8.Key? key,
+    Key? key,
     required Uri authorizationUrl,
     required void Function(Uri) onAuthorizationCodeRedirectAttempt,
+    List<PageRouteInfo>? children,
   }) : super(
           AuthorizationRoute.name,
-          path: '/auth',
           args: AuthorizationRouteArgs(
             key: key,
             authorizationUrl: authorizationUrl,
             onAuthorizationCodeRedirectAttempt:
                 onAuthorizationCodeRedirectAttempt,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'AuthorizationRoute';
+
+  static const PageInfo<AuthorizationRouteArgs> page =
+      PageInfo<AuthorizationRouteArgs>(name);
 }
 
 class AuthorizationRouteArgs {
@@ -163,7 +100,7 @@ class AuthorizationRouteArgs {
     required this.onAuthorizationCodeRedirectAttempt,
   });
 
-  final _i8.Key? key;
+  final Key? key;
 
   final Uri authorizationUrl;
 
@@ -176,33 +113,77 @@ class AuthorizationRouteArgs {
 }
 
 /// generated route for
-/// [_i4.StarredReposPage]
-class StarredReposRoute extends _i7.PageRouteInfo<void> {
-  const StarredReposRoute()
+/// [SignInPage]
+class SignInRoute extends PageRouteInfo<void> {
+  const SignInRoute({List<PageRouteInfo>? children})
       : super(
-          StarredReposRoute.name,
-          path: '/starred',
+          SignInRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'StarredReposRoute';
+  static const String name = 'SignInRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.SearchedReposPage]
-class SearchedReposRoute extends _i7.PageRouteInfo<SearchedReposRouteArgs> {
+/// [RepoDetailPage]
+class RepoDetailRoute extends PageRouteInfo<RepoDetailRouteArgs> {
+  RepoDetailRoute({
+    Key? key,
+    required GithubRepo repo,
+    List<PageRouteInfo>? children,
+  }) : super(
+          RepoDetailRoute.name,
+          args: RepoDetailRouteArgs(
+            key: key,
+            repo: repo,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'RepoDetailRoute';
+
+  static const PageInfo<RepoDetailRouteArgs> page =
+      PageInfo<RepoDetailRouteArgs>(name);
+}
+
+class RepoDetailRouteArgs {
+  const RepoDetailRouteArgs({
+    this.key,
+    required this.repo,
+  });
+
+  final Key? key;
+
+  final GithubRepo repo;
+
+  @override
+  String toString() {
+    return 'RepoDetailRouteArgs{key: $key, repo: $repo}';
+  }
+}
+
+/// generated route for
+/// [SearchedReposPage]
+class SearchedReposRoute extends PageRouteInfo<SearchedReposRouteArgs> {
   SearchedReposRoute({
-    _i8.Key? key,
+    Key? key,
     required String searchTerm,
+    List<PageRouteInfo>? children,
   }) : super(
           SearchedReposRoute.name,
-          path: '/searched',
           args: SearchedReposRouteArgs(
             key: key,
             searchTerm: searchTerm,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'SearchedReposRoute';
+
+  static const PageInfo<SearchedReposRouteArgs> page =
+      PageInfo<SearchedReposRouteArgs>(name);
 }
 
 class SearchedReposRouteArgs {
@@ -211,7 +192,7 @@ class SearchedReposRouteArgs {
     required this.searchTerm,
   });
 
-  final _i8.Key? key;
+  final Key? key;
 
   final String searchTerm;
 
@@ -222,35 +203,29 @@ class SearchedReposRouteArgs {
 }
 
 /// generated route for
-/// [_i6.RepoDetailPage]
-class RepoDetailRoute extends _i7.PageRouteInfo<RepoDetailRouteArgs> {
-  RepoDetailRoute({
-    _i8.Key? key,
-    required _i9.GithubRepo repo,
-  }) : super(
-          RepoDetailRoute.name,
-          path: '/detail',
-          args: RepoDetailRouteArgs(
-            key: key,
-            repo: repo,
-          ),
+/// [StarredReposPage]
+class StarredReposRoute extends PageRouteInfo<void> {
+  const StarredReposRoute({List<PageRouteInfo>? children})
+      : super(
+          StarredReposRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'RepoDetailRoute';
+  static const String name = 'StarredReposRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
-class RepoDetailRouteArgs {
-  const RepoDetailRouteArgs({
-    this.key,
-    required this.repo,
-  });
+/// generated route for
+/// [SplashPage]
+class SplashRoute extends PageRouteInfo<void> {
+  const SplashRoute({List<PageRouteInfo>? children})
+      : super(
+          SplashRoute.name,
+          initialChildren: children,
+        );
 
-  final _i8.Key? key;
+  static const String name = 'SplashRoute';
 
-  final _i9.GithubRepo repo;
-
-  @override
-  String toString() {
-    return 'RepoDetailRouteArgs{key: $key, repo: $repo}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

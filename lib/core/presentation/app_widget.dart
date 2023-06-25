@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:repo_viewer/auth/application/auth_notifier.dart';
 import 'package:repo_viewer/auth/shared/providers.dart';
-import 'package:repo_viewer/core/presentation/routes/app_router.gr.dart';
+import 'package:repo_viewer/core/presentation/routes/app_router.dart';
 
 import 'package:repo_viewer/core/shared/providers.dart';
 
@@ -57,8 +57,9 @@ class AppWidget extends ConsumerWidget {
     return MaterialApp.router(
       title: 'Repo Viewer',
       theme: _setUpThemeData(),
-      routerDelegate: appRouter.delegate(),
-      routeInformationParser: appRouter.defaultRouteParser(),
+      // routerDelegate: appRouter.delegate(),
+      // routeInformationParser: appRouter.defaultRouteParser(),
+      routerConfig: appRouter.config(),
     );
   }
 }

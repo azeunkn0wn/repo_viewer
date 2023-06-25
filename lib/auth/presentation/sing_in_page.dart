@@ -6,8 +6,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:repo_viewer/auth/shared/providers.dart';
 
-import 'package:repo_viewer/core/presentation/routes/app_router.gr.dart';
+import '../../core/presentation/routes/app_router.dart';
 
+@RoutePage()
 class SignInPage extends ConsumerWidget {
   const SignInPage({super.key});
 
