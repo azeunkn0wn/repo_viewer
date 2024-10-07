@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:repo_viewer/core/domain/fresh.dart';
 import 'package:repo_viewer/github/core/domain/github_failure.dart';
 import 'package:repo_viewer/github/core/domain/github_repo.dart';
-import 'package:repo_viewer/github/infrastructure/pagination_config.dart';
+import 'package:repo_viewer/github/core/infrastructure/pagination_config.dart';
 
 part 'paginated_repos_notifier.freezed.dart';
 

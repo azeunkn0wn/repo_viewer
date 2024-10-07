@@ -4,7 +4,7 @@ import 'package:repo_viewer/github/detail/application/repo_detail_notifier.dart'
 import 'package:repo_viewer/github/detail/infrastructure/repo_detail_local_service.dart';
 import 'package:repo_viewer/github/detail/infrastructure/repo_detail_remote_service.dart';
 import 'package:repo_viewer/github/detail/infrastructure/repo_detail_repository.dart';
-import 'package:repo_viewer/github/infrastructure/github_headers_cache.dart';
+import 'package:repo_viewer/github/core/infrastructure/github_headers_cache.dart';
 import 'package:repo_viewer/github/repos/core/application/paginated_repos_notifier.dart';
 import 'package:repo_viewer/github/repos/searched_repos/application/searched_repos_notifier.dart';
 import 'package:repo_viewer/github/repos/searched_repos/infrastructure/searched_repos_remote_service.dart';

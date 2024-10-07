@@ -12,7 +12,7 @@ part of 'github_headers.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 GithubHeaders _$GithubHeadersFromJson(Map<String, dynamic> json) {
   return _GithubHeaders.fromJson(json);
@@ -23,8 +23,12 @@ mixin _$GithubHeaders {
   String? get etag => throw _privateConstructorUsedError;
   PaginationLink? get link => throw _privateConstructorUsedError;
 
+  /// Serializes this GithubHeaders to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GithubHeaders
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GithubHeadersCopyWith<GithubHeaders> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$GithubHeadersCopyWithImpl<$Res, $Val extends GithubHeaders>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GithubHeaders
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -68,6 +74,8 @@ class _$GithubHeadersCopyWithImpl<$Res, $Val extends GithubHeaders>
     ) as $Val);
   }
 
+  /// Create a copy of GithubHeaders
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $PaginationLinkCopyWith<$Res>? get link {
@@ -82,11 +90,11 @@ class _$GithubHeadersCopyWithImpl<$Res, $Val extends GithubHeaders>
 }
 
 /// @nodoc
-abstract class _$$_GithubHeadersCopyWith<$Res>
+abstract class _$$GithubHeadersImplCopyWith<$Res>
     implements $GithubHeadersCopyWith<$Res> {
-  factory _$$_GithubHeadersCopyWith(
-          _$_GithubHeaders value, $Res Function(_$_GithubHeaders) then) =
-      __$$_GithubHeadersCopyWithImpl<$Res>;
+  factory _$$GithubHeadersImplCopyWith(
+          _$GithubHeadersImpl value, $Res Function(_$GithubHeadersImpl) then) =
+      __$$GithubHeadersImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? etag, PaginationLink? link});
@@ -96,20 +104,22 @@ abstract class _$$_GithubHeadersCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GithubHeadersCopyWithImpl<$Res>
-    extends _$GithubHeadersCopyWithImpl<$Res, _$_GithubHeaders>
-    implements _$$_GithubHeadersCopyWith<$Res> {
-  __$$_GithubHeadersCopyWithImpl(
-      _$_GithubHeaders _value, $Res Function(_$_GithubHeaders) _then)
+class __$$GithubHeadersImplCopyWithImpl<$Res>
+    extends _$GithubHeadersCopyWithImpl<$Res, _$GithubHeadersImpl>
+    implements _$$GithubHeadersImplCopyWith<$Res> {
+  __$$GithubHeadersImplCopyWithImpl(
+      _$GithubHeadersImpl _value, $Res Function(_$GithubHeadersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GithubHeaders
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? etag = freezed,
     Object? link = freezed,
   }) {
-    return _then(_$_GithubHeaders(
+    return _then(_$GithubHeadersImpl(
       etag: freezed == etag
           ? _value.etag
           : etag // ignore: cast_nullable_to_non_nullable
@@ -124,11 +134,11 @@ class __$$_GithubHeadersCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GithubHeaders extends _GithubHeaders {
-  const _$_GithubHeaders({this.etag, this.link}) : super._();
+class _$GithubHeadersImpl extends _GithubHeaders {
+  const _$GithubHeadersImpl({this.etag, this.link}) : super._();
 
-  factory _$_GithubHeaders.fromJson(Map<String, dynamic> json) =>
-      _$$_GithubHeadersFromJson(json);
+  factory _$GithubHeadersImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GithubHeadersImplFromJson(json);
 
   @override
   final String? etag;
@@ -141,27 +151,29 @@ class _$_GithubHeaders extends _GithubHeaders {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GithubHeaders &&
+            other is _$GithubHeadersImpl &&
             (identical(other.etag, etag) || other.etag == etag) &&
             (identical(other.link, link) || other.link == link));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, etag, link);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GithubHeaders
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GithubHeadersCopyWith<_$_GithubHeaders> get copyWith =>
-      __$$_GithubHeadersCopyWithImpl<_$_GithubHeaders>(this, _$identity);
+  _$$GithubHeadersImplCopyWith<_$GithubHeadersImpl> get copyWith =>
+      __$$GithubHeadersImplCopyWithImpl<_$GithubHeadersImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GithubHeadersToJson(
+    return _$$GithubHeadersImplToJson(
       this,
     );
   }
@@ -169,19 +181,22 @@ class _$_GithubHeaders extends _GithubHeaders {
 
 abstract class _GithubHeaders extends GithubHeaders {
   const factory _GithubHeaders(
-      {final String? etag, final PaginationLink? link}) = _$_GithubHeaders;
+      {final String? etag, final PaginationLink? link}) = _$GithubHeadersImpl;
   const _GithubHeaders._() : super._();
 
   factory _GithubHeaders.fromJson(Map<String, dynamic> json) =
-      _$_GithubHeaders.fromJson;
+      _$GithubHeadersImpl.fromJson;
 
   @override
   String? get etag;
   @override
   PaginationLink? get link;
+
+  /// Create a copy of GithubHeaders
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_GithubHeadersCopyWith<_$_GithubHeaders> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GithubHeadersImplCopyWith<_$GithubHeadersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -193,8 +208,12 @@ PaginationLink _$PaginationLinkFromJson(Map<String, dynamic> json) {
 mixin _$PaginationLink {
   int get maxPage => throw _privateConstructorUsedError;
 
+  /// Serializes this PaginationLink to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PaginationLink
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PaginationLinkCopyWith<PaginationLink> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -218,6 +237,8 @@ class _$PaginationLinkCopyWithImpl<$Res, $Val extends PaginationLink>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PaginationLink
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -233,30 +254,32 @@ class _$PaginationLinkCopyWithImpl<$Res, $Val extends PaginationLink>
 }
 
 /// @nodoc
-abstract class _$$_PaginationLinkCopyWith<$Res>
+abstract class _$$PaginationLinkImplCopyWith<$Res>
     implements $PaginationLinkCopyWith<$Res> {
-  factory _$$_PaginationLinkCopyWith(
-          _$_PaginationLink value, $Res Function(_$_PaginationLink) then) =
-      __$$_PaginationLinkCopyWithImpl<$Res>;
+  factory _$$PaginationLinkImplCopyWith(_$PaginationLinkImpl value,
+          $Res Function(_$PaginationLinkImpl) then) =
+      __$$PaginationLinkImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int maxPage});
 }
 
 /// @nodoc
-class __$$_PaginationLinkCopyWithImpl<$Res>
-    extends _$PaginationLinkCopyWithImpl<$Res, _$_PaginationLink>
-    implements _$$_PaginationLinkCopyWith<$Res> {
-  __$$_PaginationLinkCopyWithImpl(
-      _$_PaginationLink _value, $Res Function(_$_PaginationLink) _then)
+class __$$PaginationLinkImplCopyWithImpl<$Res>
+    extends _$PaginationLinkCopyWithImpl<$Res, _$PaginationLinkImpl>
+    implements _$$PaginationLinkImplCopyWith<$Res> {
+  __$$PaginationLinkImplCopyWithImpl(
+      _$PaginationLinkImpl _value, $Res Function(_$PaginationLinkImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PaginationLink
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? maxPage = null,
   }) {
-    return _then(_$_PaginationLink(
+    return _then(_$PaginationLinkImpl(
       maxPage: null == maxPage
           ? _value.maxPage
           : maxPage // ignore: cast_nullable_to_non_nullable
@@ -267,11 +290,11 @@ class __$$_PaginationLinkCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PaginationLink extends _PaginationLink {
-  const _$_PaginationLink({required this.maxPage}) : super._();
+class _$PaginationLinkImpl extends _PaginationLink {
+  const _$PaginationLinkImpl({required this.maxPage}) : super._();
 
-  factory _$_PaginationLink.fromJson(Map<String, dynamic> json) =>
-      _$$_PaginationLinkFromJson(json);
+  factory _$PaginationLinkImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PaginationLinkImplFromJson(json);
 
   @override
   final int maxPage;
@@ -282,26 +305,29 @@ class _$_PaginationLink extends _PaginationLink {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PaginationLink &&
+            other is _$PaginationLinkImpl &&
             (identical(other.maxPage, maxPage) || other.maxPage == maxPage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, maxPage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PaginationLink
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaginationLinkCopyWith<_$_PaginationLink> get copyWith =>
-      __$$_PaginationLinkCopyWithImpl<_$_PaginationLink>(this, _$identity);
+  _$$PaginationLinkImplCopyWith<_$PaginationLinkImpl> get copyWith =>
+      __$$PaginationLinkImplCopyWithImpl<_$PaginationLinkImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PaginationLinkToJson(
+    return _$$PaginationLinkImplToJson(
       this,
     );
   }
@@ -309,16 +335,19 @@ class _$_PaginationLink extends _PaginationLink {
 
 abstract class _PaginationLink extends PaginationLink {
   const factory _PaginationLink({required final int maxPage}) =
-      _$_PaginationLink;
+      _$PaginationLinkImpl;
   const _PaginationLink._() : super._();
 
   factory _PaginationLink.fromJson(Map<String, dynamic> json) =
-      _$_PaginationLink.fromJson;
+      _$PaginationLinkImpl.fromJson;
 
   @override
   int get maxPage;
+
+  /// Create a copy of PaginationLink
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_PaginationLinkCopyWith<_$_PaginationLink> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PaginationLinkImplCopyWith<_$PaginationLinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

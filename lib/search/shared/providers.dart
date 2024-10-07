@@ -10,7 +10,7 @@ final searchHistoryRepository = Provider(
 );
 
 final searchHistoryNotifierProvider =
-    StateNotifierProvider<SearchHistoryNotifier, AsyncValue<List<String>>>(
+    StateNotifierProvider<SearchHistoryNotifier, SearchHistoryState>(
   (ref) => SearchHistoryNotifier(
     ref.watch(searchHistoryRepository),
   ),

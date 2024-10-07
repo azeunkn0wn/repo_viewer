@@ -1,18 +1,19 @@
 import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 import 'package:repo_viewer/search/shared/providers.dart';
 
-class SearchBar extends ConsumerStatefulWidget {
+class CustomSearchBar extends ConsumerStatefulWidget {
   final Widget body;
   final String title;
   final String hint;
   final void Function(String searchTerm) onShouldNavigateToResultPage;
   final void Function() onSignOutButtonPressed;
-  const SearchBar({
+  const CustomSearchBar({
     required this.body,
     required this.title,
     required this.hint,
@@ -20,10 +21,10 @@ class SearchBar extends ConsumerStatefulWidget {
     required this.onSignOutButtonPressed,
   });
   @override
-  ConsumerState<SearchBar> createState() => _SearchBarState();
+  ConsumerState<CustomSearchBar> createState() => _SearchBarState();
 }
 
-class _SearchBarState extends ConsumerState<SearchBar> {
+class _SearchBarState extends ConsumerState<CustomSearchBar> {
   late final FloatingSearchBarController _controller;
   @override
   void initState() {
@@ -78,13 +79,13 @@ class _SearchBarState extends ConsumerState<SearchBar> {
             IconButton(
               icon: const Icon(Icons.arrow_back_ios),
               splashRadius: 18,
-              onPressed: () => AutoRouter.of(context).pop(),
+              onPressed: () => AutoRouter.of(context).maybePop(),
             )
           else
             IconButton(
               icon: const Icon(Icons.arrow_back),
               splashRadius: 18,
-              onPressed: () => AutoRouter.of(context).pop(),
+              onPressed: () => AutoRouter.of(context).maybePop(),
             )
       ],
       actions: [
@@ -119,7 +120,7 @@ class _SearchBarState extends ConsumerState<SearchBar> {
               final searchHistory = ref.watch(searchHistoryNotifierProvider);
               return searchHistory.map(
                 data: (history) {
-                  if (_controller.query.isEmpty && history.value.isEmpty) {
+                  if (_controller.query.isEmpty && history.terms.isEmpty) {
                     return Container(
                       height: 56,
                       alignment: Alignment.center,
@@ -128,7 +129,7 @@ class _SearchBarState extends ConsumerState<SearchBar> {
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     );
-                  } else if (history.value.isEmpty) {
+                  } else if (history.terms.isEmpty) {
                     return ListTile(
                       title: Text(_controller.query),
                       leading: const Icon(Icons.search),
@@ -137,8 +138,9 @@ class _SearchBarState extends ConsumerState<SearchBar> {
                       },
                     );
                   }
+
                   return Column(
-                    children: history.value
+                    children: history.terms
                         .map(
                           (term) => ListTile(
                             title: Text(

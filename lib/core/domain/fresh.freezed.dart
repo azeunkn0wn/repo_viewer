@@ -12,7 +12,7 @@ part of 'fresh.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Fresh<T> {
@@ -20,7 +20,9 @@ mixin _$Fresh<T> {
   bool get isFresh => throw _privateConstructorUsedError;
   bool? get isNextPageAvailable => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Fresh
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FreshCopyWith<T, Fresh<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$FreshCopyWithImpl<T, $Res, $Val extends Fresh<T>>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Fresh
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -68,22 +72,26 @@ class _$FreshCopyWithImpl<T, $Res, $Val extends Fresh<T>>
 }
 
 /// @nodoc
-abstract class _$$_FreshCopyWith<T, $Res> implements $FreshCopyWith<T, $Res> {
-  factory _$$_FreshCopyWith(
-          _$_Fresh<T> value, $Res Function(_$_Fresh<T>) then) =
-      __$$_FreshCopyWithImpl<T, $Res>;
+abstract class _$$FreshImplCopyWith<T, $Res>
+    implements $FreshCopyWith<T, $Res> {
+  factory _$$FreshImplCopyWith(
+          _$FreshImpl<T> value, $Res Function(_$FreshImpl<T>) then) =
+      __$$FreshImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({T entity, bool isFresh, bool? isNextPageAvailable});
 }
 
 /// @nodoc
-class __$$_FreshCopyWithImpl<T, $Res>
-    extends _$FreshCopyWithImpl<T, $Res, _$_Fresh<T>>
-    implements _$$_FreshCopyWith<T, $Res> {
-  __$$_FreshCopyWithImpl(_$_Fresh<T> _value, $Res Function(_$_Fresh<T>) _then)
+class __$$FreshImplCopyWithImpl<T, $Res>
+    extends _$FreshCopyWithImpl<T, $Res, _$FreshImpl<T>>
+    implements _$$FreshImplCopyWith<T, $Res> {
+  __$$FreshImplCopyWithImpl(
+      _$FreshImpl<T> _value, $Res Function(_$FreshImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of Fresh
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,7 +99,7 @@ class __$$_FreshCopyWithImpl<T, $Res>
     Object? isFresh = null,
     Object? isNextPageAvailable = freezed,
   }) {
-    return _then(_$_Fresh<T>(
+    return _then(_$FreshImpl<T>(
       entity: freezed == entity
           ? _value.entity
           : entity // ignore: cast_nullable_to_non_nullable
@@ -110,8 +118,8 @@ class __$$_FreshCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_Fresh<T> extends _Fresh<T> {
-  const _$_Fresh(
+class _$FreshImpl<T> extends _Fresh<T> {
+  const _$FreshImpl(
       {required this.entity, required this.isFresh, this.isNextPageAvailable})
       : super._();
 
@@ -128,10 +136,10 @@ class _$_Fresh<T> extends _Fresh<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Fresh<T> &&
+            other is _$FreshImpl<T> &&
             const DeepCollectionEquality().equals(other.entity, entity) &&
             (identical(other.isFresh, isFresh) || other.isFresh == isFresh) &&
             (identical(other.isNextPageAvailable, isNextPageAvailable) ||
@@ -145,18 +153,20 @@ class _$_Fresh<T> extends _Fresh<T> {
       isFresh,
       isNextPageAvailable);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Fresh
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FreshCopyWith<T, _$_Fresh<T>> get copyWith =>
-      __$$_FreshCopyWithImpl<T, _$_Fresh<T>>(this, _$identity);
+  _$$FreshImplCopyWith<T, _$FreshImpl<T>> get copyWith =>
+      __$$FreshImplCopyWithImpl<T, _$FreshImpl<T>>(this, _$identity);
 }
 
 abstract class _Fresh<T> extends Fresh<T> {
   const factory _Fresh(
       {required final T entity,
       required final bool isFresh,
-      final bool? isNextPageAvailable}) = _$_Fresh<T>;
+      final bool? isNextPageAvailable}) = _$FreshImpl<T>;
   const _Fresh._() : super._();
 
   @override
@@ -165,8 +175,11 @@ abstract class _Fresh<T> extends Fresh<T> {
   bool get isFresh;
   @override
   bool? get isNextPageAvailable;
+
+  /// Create a copy of Fresh
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_FreshCopyWith<T, _$_Fresh<T>> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FreshImplCopyWith<T, _$FreshImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

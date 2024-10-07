@@ -23,7 +23,7 @@ class EnvLoader {
         await dotenv.load(fileName: fileName);
         if (!dotenv.isEveryDefined(_requiredEnvVars)) {
           throw Exception(
-            '${ConfigReader.getEnv(env)} - Missing required environment variables',
+            '$fileName - Missing required environment variables',
           );
         }
       } catch (e) {

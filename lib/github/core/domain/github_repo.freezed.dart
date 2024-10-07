@@ -12,7 +12,7 @@ part of 'github_repo.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GithubRepo {
@@ -21,7 +21,9 @@ mixin _$GithubRepo {
   String get description => throw _privateConstructorUsedError;
   int get stargazersCount => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GithubRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GithubRepoCopyWith<GithubRepo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +49,8 @@ class _$GithubRepoCopyWithImpl<$Res, $Val extends GithubRepo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GithubRepo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -75,6 +79,8 @@ class _$GithubRepoCopyWithImpl<$Res, $Val extends GithubRepo>
     ) as $Val);
   }
 
+  /// Create a copy of GithubRepo
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UserCopyWith<$Res> get owner {
@@ -85,11 +91,11 @@ class _$GithubRepoCopyWithImpl<$Res, $Val extends GithubRepo>
 }
 
 /// @nodoc
-abstract class _$$_GithubRepoCopyWith<$Res>
+abstract class _$$GithubRepoImplCopyWith<$Res>
     implements $GithubRepoCopyWith<$Res> {
-  factory _$$_GithubRepoCopyWith(
-          _$_GithubRepo value, $Res Function(_$_GithubRepo) then) =
-      __$$_GithubRepoCopyWithImpl<$Res>;
+  factory _$$GithubRepoImplCopyWith(
+          _$GithubRepoImpl value, $Res Function(_$GithubRepoImpl) then) =
+      __$$GithubRepoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({User owner, String name, String description, int stargazersCount});
@@ -99,13 +105,15 @@ abstract class _$$_GithubRepoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GithubRepoCopyWithImpl<$Res>
-    extends _$GithubRepoCopyWithImpl<$Res, _$_GithubRepo>
-    implements _$$_GithubRepoCopyWith<$Res> {
-  __$$_GithubRepoCopyWithImpl(
-      _$_GithubRepo _value, $Res Function(_$_GithubRepo) _then)
+class __$$GithubRepoImplCopyWithImpl<$Res>
+    extends _$GithubRepoCopyWithImpl<$Res, _$GithubRepoImpl>
+    implements _$$GithubRepoImplCopyWith<$Res> {
+  __$$GithubRepoImplCopyWithImpl(
+      _$GithubRepoImpl _value, $Res Function(_$GithubRepoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GithubRepo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,7 +122,7 @@ class __$$_GithubRepoCopyWithImpl<$Res>
     Object? description = null,
     Object? stargazersCount = null,
   }) {
-    return _then(_$_GithubRepo(
+    return _then(_$GithubRepoImpl(
       owner: null == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
@@ -137,8 +145,8 @@ class __$$_GithubRepoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GithubRepo extends _GithubRepo {
-  const _$_GithubRepo(
+class _$GithubRepoImpl extends _GithubRepo {
+  const _$GithubRepoImpl(
       {required this.owner,
       required this.name,
       required this.description,
@@ -160,10 +168,10 @@ class _$_GithubRepo extends _GithubRepo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GithubRepo &&
+            other is _$GithubRepoImpl &&
             (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -176,11 +184,13 @@ class _$_GithubRepo extends _GithubRepo {
   int get hashCode =>
       Object.hash(runtimeType, owner, name, description, stargazersCount);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GithubRepo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GithubRepoCopyWith<_$_GithubRepo> get copyWith =>
-      __$$_GithubRepoCopyWithImpl<_$_GithubRepo>(this, _$identity);
+  _$$GithubRepoImplCopyWith<_$GithubRepoImpl> get copyWith =>
+      __$$GithubRepoImplCopyWithImpl<_$GithubRepoImpl>(this, _$identity);
 }
 
 abstract class _GithubRepo extends GithubRepo {
@@ -188,7 +198,7 @@ abstract class _GithubRepo extends GithubRepo {
       {required final User owner,
       required final String name,
       required final String description,
-      required final int stargazersCount}) = _$_GithubRepo;
+      required final int stargazersCount}) = _$GithubRepoImpl;
   const _GithubRepo._() : super._();
 
   @override
@@ -199,8 +209,11 @@ abstract class _GithubRepo extends GithubRepo {
   String get description;
   @override
   int get stargazersCount;
+
+  /// Create a copy of GithubRepo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_GithubRepoCopyWith<_$_GithubRepo> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GithubRepoImplCopyWith<_$GithubRepoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

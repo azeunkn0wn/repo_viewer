@@ -12,7 +12,7 @@ part of 'github_repo_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 GithubRepoDTO _$GithubRepoDTOFromJson(Map<String, dynamic> json) {
   return _GithubRepoDTO.fromJson(json);
@@ -27,8 +27,12 @@ mixin _$GithubRepoDTO {
   @JsonKey(name: 'stargazers_count')
   int get stargazersCount => throw _privateConstructorUsedError;
 
+  /// Serializes this GithubRepoDTO to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GithubRepoDTO
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GithubRepoDTOCopyWith<GithubRepoDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$GithubRepoDTOCopyWithImpl<$Res, $Val extends GithubRepoDTO>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GithubRepoDTO
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class _$GithubRepoDTOCopyWithImpl<$Res, $Val extends GithubRepoDTO>
     ) as $Val);
   }
 
+  /// Create a copy of GithubRepoDTO
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UserDTOCopyWith<$Res> get owner {
@@ -96,11 +104,11 @@ class _$GithubRepoDTOCopyWithImpl<$Res, $Val extends GithubRepoDTO>
 }
 
 /// @nodoc
-abstract class _$$_GithubRepoDTOCopyWith<$Res>
+abstract class _$$GithubRepoDTOImplCopyWith<$Res>
     implements $GithubRepoDTOCopyWith<$Res> {
-  factory _$$_GithubRepoDTOCopyWith(
-          _$_GithubRepoDTO value, $Res Function(_$_GithubRepoDTO) then) =
-      __$$_GithubRepoDTOCopyWithImpl<$Res>;
+  factory _$$GithubRepoDTOImplCopyWith(
+          _$GithubRepoDTOImpl value, $Res Function(_$GithubRepoDTOImpl) then) =
+      __$$GithubRepoDTOImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -114,13 +122,15 @@ abstract class _$$_GithubRepoDTOCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GithubRepoDTOCopyWithImpl<$Res>
-    extends _$GithubRepoDTOCopyWithImpl<$Res, _$_GithubRepoDTO>
-    implements _$$_GithubRepoDTOCopyWith<$Res> {
-  __$$_GithubRepoDTOCopyWithImpl(
-      _$_GithubRepoDTO _value, $Res Function(_$_GithubRepoDTO) _then)
+class __$$GithubRepoDTOImplCopyWithImpl<$Res>
+    extends _$GithubRepoDTOCopyWithImpl<$Res, _$GithubRepoDTOImpl>
+    implements _$$GithubRepoDTOImplCopyWith<$Res> {
+  __$$GithubRepoDTOImplCopyWithImpl(
+      _$GithubRepoDTOImpl _value, $Res Function(_$GithubRepoDTOImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GithubRepoDTO
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -129,7 +139,7 @@ class __$$_GithubRepoDTOCopyWithImpl<$Res>
     Object? description = null,
     Object? stargazersCount = null,
   }) {
-    return _then(_$_GithubRepoDTO(
+    return _then(_$GithubRepoDTOImpl(
       owner: null == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
@@ -152,16 +162,16 @@ class __$$_GithubRepoDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GithubRepoDTO extends _GithubRepoDTO {
-  const _$_GithubRepoDTO(
+class _$GithubRepoDTOImpl extends _GithubRepoDTO {
+  const _$GithubRepoDTOImpl(
       {required this.owner,
       required this.name,
       @JsonKey(fromJson: _descriptionFromJson) required this.description,
       @JsonKey(name: 'stargazers_count') required this.stargazersCount})
       : super._();
 
-  factory _$_GithubRepoDTO.fromJson(Map<String, dynamic> json) =>
-      _$$_GithubRepoDTOFromJson(json);
+  factory _$GithubRepoDTOImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GithubRepoDTOImplFromJson(json);
 
   @override
   final UserDTO owner;
@@ -180,10 +190,10 @@ class _$_GithubRepoDTO extends _GithubRepoDTO {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GithubRepoDTO &&
+            other is _$GithubRepoDTOImpl &&
             (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -192,20 +202,22 @@ class _$_GithubRepoDTO extends _GithubRepoDTO {
                 other.stargazersCount == stargazersCount));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, owner, name, description, stargazersCount);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GithubRepoDTO
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GithubRepoDTOCopyWith<_$_GithubRepoDTO> get copyWith =>
-      __$$_GithubRepoDTOCopyWithImpl<_$_GithubRepoDTO>(this, _$identity);
+  _$$GithubRepoDTOImplCopyWith<_$GithubRepoDTOImpl> get copyWith =>
+      __$$GithubRepoDTOImplCopyWithImpl<_$GithubRepoDTOImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GithubRepoDTOToJson(
+    return _$$GithubRepoDTOImplToJson(
       this,
     );
   }
@@ -216,13 +228,13 @@ abstract class _GithubRepoDTO extends GithubRepoDTO {
       {required final UserDTO owner,
       required final String name,
       @JsonKey(fromJson: _descriptionFromJson)
-          required final String description,
+      required final String description,
       @JsonKey(name: 'stargazers_count')
-          required final int stargazersCount}) = _$_GithubRepoDTO;
+      required final int stargazersCount}) = _$GithubRepoDTOImpl;
   const _GithubRepoDTO._() : super._();
 
   factory _GithubRepoDTO.fromJson(Map<String, dynamic> json) =
-      _$_GithubRepoDTO.fromJson;
+      _$GithubRepoDTOImpl.fromJson;
 
   @override
   UserDTO get owner;
@@ -234,8 +246,11 @@ abstract class _GithubRepoDTO extends GithubRepoDTO {
   @override
   @JsonKey(name: 'stargazers_count')
   int get stargazersCount;
+
+  /// Create a copy of GithubRepoDTO
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_GithubRepoDTOCopyWith<_$_GithubRepoDTO> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GithubRepoDTOImplCopyWith<_$GithubRepoDTOImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

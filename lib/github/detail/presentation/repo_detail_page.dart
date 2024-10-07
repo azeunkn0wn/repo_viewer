@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -12,6 +13,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import 'package:webview_flutter/webview_flutter.dart';
 
+@RoutePage()
 class RepoDetailPage extends ConsumerStatefulWidget {
   final GithubRepo repo;
   const RepoDetailPage({super.key, required this.repo});
@@ -68,14 +70,14 @@ class _RepoDetailPageState extends ConsumerState<RepoDetailPage> {
       },
     );
 
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      canPop: true,
+      onPopInvokedWithResult: (_, __) async {
         if (state.hasStarredStatusChanged) {
           ref
               .read(starredReposNotifierProvider.notifier)
               .getFirstStarredReposPage();
         }
-        return true;
       },
       child: Scaffold(
         appBar: AppBar(

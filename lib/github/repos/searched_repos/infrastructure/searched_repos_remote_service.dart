@@ -1,6 +1,6 @@
 import 'package:repo_viewer/core/infrastructure/remote_response.dart';
-import 'package:repo_viewer/github/infrastructure/github_repo_dto.dart';
-import 'package:repo_viewer/github/infrastructure/pagination_config.dart';
+import 'package:repo_viewer/github/core/infrastructure/github_repo_dto.dart';
+import 'package:repo_viewer/github/core/infrastructure/pagination_config.dart';
 import 'package:repo_viewer/github/repos/core/infrastructure/repos_remote_service.dart';
 
 class SearchedReposRemoteService extends ReposRemoteService {

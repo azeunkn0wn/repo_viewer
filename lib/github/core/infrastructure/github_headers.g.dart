@@ -6,26 +6,27 @@ part of 'github_headers.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GithubHeaders _$$_GithubHeadersFromJson(Map<String, dynamic> json) =>
-    _$_GithubHeaders(
+_$GithubHeadersImpl _$$GithubHeadersImplFromJson(Map<String, dynamic> json) =>
+    _$GithubHeadersImpl(
       etag: json['etag'] as String?,
       link: json['link'] == null
           ? null
           : PaginationLink.fromJson(json['link'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_GithubHeadersToJson(_$_GithubHeaders instance) =>
+Map<String, dynamic> _$$GithubHeadersImplToJson(_$GithubHeadersImpl instance) =>
     <String, dynamic>{
       'etag': instance.etag,
       'link': instance.link?.toJson(),
     };
 
-_$_PaginationLink _$$_PaginationLinkFromJson(Map<String, dynamic> json) =>
-    _$_PaginationLink(
-      maxPage: json['maxPage'] as int,
+_$PaginationLinkImpl _$$PaginationLinkImplFromJson(Map<String, dynamic> json) =>
+    _$PaginationLinkImpl(
+      maxPage: (json['maxPage'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$_PaginationLinkToJson(_$_PaginationLink instance) =>
+Map<String, dynamic> _$$PaginationLinkImplToJson(
+        _$PaginationLinkImpl instance) =>
     <String, dynamic>{
       'maxPage': instance.maxPage,
     };

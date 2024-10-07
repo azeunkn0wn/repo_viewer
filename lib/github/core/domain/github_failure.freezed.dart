@@ -12,7 +12,7 @@ part of 'github_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GithubFailure {
@@ -50,7 +50,9 @@ mixin _$GithubFailure {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GithubFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GithubFailureCopyWith<GithubFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -74,6 +76,8 @@ class _$GithubFailureCopyWithImpl<$Res, $Val extends GithubFailure>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GithubFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -89,27 +93,30 @@ class _$GithubFailureCopyWithImpl<$Res, $Val extends GithubFailure>
 }
 
 /// @nodoc
-abstract class _$$_ApiCopyWith<$Res> implements $GithubFailureCopyWith<$Res> {
-  factory _$$_ApiCopyWith(_$_Api value, $Res Function(_$_Api) then) =
-      __$$_ApiCopyWithImpl<$Res>;
+abstract class _$$ApiImplCopyWith<$Res>
+    implements $GithubFailureCopyWith<$Res> {
+  factory _$$ApiImplCopyWith(_$ApiImpl value, $Res Function(_$ApiImpl) then) =
+      __$$ApiImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? errorCode});
 }
 
 /// @nodoc
-class __$$_ApiCopyWithImpl<$Res>
-    extends _$GithubFailureCopyWithImpl<$Res, _$_Api>
-    implements _$$_ApiCopyWith<$Res> {
-  __$$_ApiCopyWithImpl(_$_Api _value, $Res Function(_$_Api) _then)
+class __$$ApiImplCopyWithImpl<$Res>
+    extends _$GithubFailureCopyWithImpl<$Res, _$ApiImpl>
+    implements _$$ApiImplCopyWith<$Res> {
+  __$$ApiImplCopyWithImpl(_$ApiImpl _value, $Res Function(_$ApiImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GithubFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? errorCode = freezed,
   }) {
-    return _then(_$_Api(
+    return _then(_$ApiImpl(
       freezed == errorCode
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
@@ -120,8 +127,8 @@ class __$$_ApiCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Api extends _Api {
-  const _$_Api(this.errorCode) : super._();
+class _$ApiImpl extends _Api {
+  const _$ApiImpl(this.errorCode) : super._();
 
   @override
   final int? errorCode;
@@ -132,10 +139,10 @@ class _$_Api extends _Api {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Api &&
+            other is _$ApiImpl &&
             (identical(other.errorCode, errorCode) ||
                 other.errorCode == errorCode));
   }
@@ -143,11 +150,13 @@ class _$_Api extends _Api {
   @override
   int get hashCode => Object.hash(runtimeType, errorCode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GithubFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApiCopyWith<_$_Api> get copyWith =>
-      __$$_ApiCopyWithImpl<_$_Api>(this, _$identity);
+  _$$ApiImplCopyWith<_$ApiImpl> get copyWith =>
+      __$$ApiImplCopyWithImpl<_$ApiImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -207,12 +216,16 @@ class _$_Api extends _Api {
 }
 
 abstract class _Api extends GithubFailure {
-  const factory _Api(final int? errorCode) = _$_Api;
+  const factory _Api(final int? errorCode) = _$ApiImpl;
   const _Api._() : super._();
 
   @override
   int? get errorCode;
+
+  /// Create a copy of GithubFailure
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_ApiCopyWith<_$_Api> get copyWith => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ApiImplCopyWith<_$ApiImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -8,7 +8,6 @@ import 'package:oauth2/oauth2.dart';
 import 'package:repo_viewer/auth/domain/auth_failure.dart';
 import 'package:repo_viewer/auth/infrastructure/credentials_storage/credentials_storage.dart';
 import 'package:repo_viewer/core/infrastructure/dio_extensions.dart';
-
 import 'package:repo_viewer/core/shared/encoders.dart';
 
 class GithubOAuthHttpClient extends http.BaseClient {
@@ -26,7 +25,6 @@ class GithubAuthenticator {
 
   GithubAuthenticator(this._credentialStorage, this._dio);
 
-// TODO: move variables to dotenv
   static String clientId = dotenv.get('GITHUB_CLIENT_ID');
   static String clientSecret = dotenv.get('GITHUB_CLIENT_SECRET');
   static const scopes = ['read:user', 'repo'];
@@ -108,7 +106,7 @@ class GithubAuthenticator {
             headers: {'Authorization': 'basic $usernameAndPassword'},
           ),
         );
-      } on DioError catch (e) {
+      } on DioException catch (e) {
         if (e.isNoConnectionError) {
           if (kDebugMode) {
             print('Token not revoked');
