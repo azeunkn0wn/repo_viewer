@@ -12,7 +12,7 @@ part of 'github_repo_detail_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 GithubRepoDetailDTO _$GithubRepoDetailDTOFromJson(Map<String, dynamic> json) {
   return _GithubRepoDetailDTO.fromJson(json);
@@ -24,8 +24,12 @@ mixin _$GithubRepoDetailDTO {
   String get html => throw _privateConstructorUsedError;
   bool get starred => throw _privateConstructorUsedError;
 
+  /// Serializes this GithubRepoDetailDTO to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GithubRepoDetailDTO
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GithubRepoDetailDTOCopyWith<GithubRepoDetailDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$GithubRepoDetailDTOCopyWithImpl<$Res, $Val extends GithubRepoDetailDTO>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GithubRepoDetailDTO
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -74,24 +80,26 @@ class _$GithubRepoDetailDTOCopyWithImpl<$Res, $Val extends GithubRepoDetailDTO>
 }
 
 /// @nodoc
-abstract class _$$_GithubRepoDetailDTOCopyWith<$Res>
+abstract class _$$GithubRepoDetailDTOImplCopyWith<$Res>
     implements $GithubRepoDetailDTOCopyWith<$Res> {
-  factory _$$_GithubRepoDetailDTOCopyWith(_$_GithubRepoDetailDTO value,
-          $Res Function(_$_GithubRepoDetailDTO) then) =
-      __$$_GithubRepoDetailDTOCopyWithImpl<$Res>;
+  factory _$$GithubRepoDetailDTOImplCopyWith(_$GithubRepoDetailDTOImpl value,
+          $Res Function(_$GithubRepoDetailDTOImpl) then) =
+      __$$GithubRepoDetailDTOImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String fullName, String html, bool starred});
 }
 
 /// @nodoc
-class __$$_GithubRepoDetailDTOCopyWithImpl<$Res>
-    extends _$GithubRepoDetailDTOCopyWithImpl<$Res, _$_GithubRepoDetailDTO>
-    implements _$$_GithubRepoDetailDTOCopyWith<$Res> {
-  __$$_GithubRepoDetailDTOCopyWithImpl(_$_GithubRepoDetailDTO _value,
-      $Res Function(_$_GithubRepoDetailDTO) _then)
+class __$$GithubRepoDetailDTOImplCopyWithImpl<$Res>
+    extends _$GithubRepoDetailDTOCopyWithImpl<$Res, _$GithubRepoDetailDTOImpl>
+    implements _$$GithubRepoDetailDTOImplCopyWith<$Res> {
+  __$$GithubRepoDetailDTOImplCopyWithImpl(_$GithubRepoDetailDTOImpl _value,
+      $Res Function(_$GithubRepoDetailDTOImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GithubRepoDetailDTO
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -99,7 +107,7 @@ class __$$_GithubRepoDetailDTOCopyWithImpl<$Res>
     Object? html = null,
     Object? starred = null,
   }) {
-    return _then(_$_GithubRepoDetailDTO(
+    return _then(_$GithubRepoDetailDTOImpl(
       fullName: null == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -118,13 +126,13 @@ class __$$_GithubRepoDetailDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GithubRepoDetailDTO extends _GithubRepoDetailDTO {
-  const _$_GithubRepoDetailDTO(
+class _$GithubRepoDetailDTOImpl extends _GithubRepoDetailDTO {
+  const _$GithubRepoDetailDTOImpl(
       {required this.fullName, required this.html, required this.starred})
       : super._();
 
-  factory _$_GithubRepoDetailDTO.fromJson(Map<String, dynamic> json) =>
-      _$$_GithubRepoDetailDTOFromJson(json);
+  factory _$GithubRepoDetailDTOImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GithubRepoDetailDTOImplFromJson(json);
 
   @override
   final String fullName;
@@ -139,30 +147,32 @@ class _$_GithubRepoDetailDTO extends _GithubRepoDetailDTO {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GithubRepoDetailDTO &&
+            other is _$GithubRepoDetailDTOImpl &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
             (identical(other.html, html) || other.html == html) &&
             (identical(other.starred, starred) || other.starred == starred));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, fullName, html, starred);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GithubRepoDetailDTO
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GithubRepoDetailDTOCopyWith<_$_GithubRepoDetailDTO> get copyWith =>
-      __$$_GithubRepoDetailDTOCopyWithImpl<_$_GithubRepoDetailDTO>(
+  _$$GithubRepoDetailDTOImplCopyWith<_$GithubRepoDetailDTOImpl> get copyWith =>
+      __$$GithubRepoDetailDTOImplCopyWithImpl<_$GithubRepoDetailDTOImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GithubRepoDetailDTOToJson(
+    return _$$GithubRepoDetailDTOImplToJson(
       this,
     );
   }
@@ -172,11 +182,11 @@ abstract class _GithubRepoDetailDTO extends GithubRepoDetailDTO {
   const factory _GithubRepoDetailDTO(
       {required final String fullName,
       required final String html,
-      required final bool starred}) = _$_GithubRepoDetailDTO;
+      required final bool starred}) = _$GithubRepoDetailDTOImpl;
   const _GithubRepoDetailDTO._() : super._();
 
   factory _GithubRepoDetailDTO.fromJson(Map<String, dynamic> json) =
-      _$_GithubRepoDetailDTO.fromJson;
+      _$GithubRepoDetailDTOImpl.fromJson;
 
   @override
   String get fullName;
@@ -184,8 +194,11 @@ abstract class _GithubRepoDetailDTO extends GithubRepoDetailDTO {
   String get html;
   @override
   bool get starred;
+
+  /// Create a copy of GithubRepoDetailDTO
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_GithubRepoDetailDTOCopyWith<_$_GithubRepoDetailDTO> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GithubRepoDetailDTOImplCopyWith<_$GithubRepoDetailDTOImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

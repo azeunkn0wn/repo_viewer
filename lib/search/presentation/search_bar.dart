@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -78,13 +79,13 @@ class _SearchBarState extends ConsumerState<CustomSearchBar> {
             IconButton(
               icon: const Icon(Icons.arrow_back_ios),
               splashRadius: 18,
-              onPressed: () => AutoRouter.of(context).pop(),
+              onPressed: () => AutoRouter.of(context).maybePop(),
             )
           else
             IconButton(
               icon: const Icon(Icons.arrow_back),
               splashRadius: 18,
-              onPressed: () => AutoRouter.of(context).pop(),
+              onPressed: () => AutoRouter.of(context).maybePop(),
             )
       ],
       actions: [

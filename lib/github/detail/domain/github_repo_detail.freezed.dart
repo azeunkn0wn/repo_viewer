@@ -12,7 +12,7 @@ part of 'github_repo_detail.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GithubRepoDetail {
@@ -20,7 +20,9 @@ mixin _$GithubRepoDetail {
   String get html => throw _privateConstructorUsedError;
   bool get starred => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GithubRepoDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GithubRepoDetailCopyWith<GithubRepoDetail> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,6 +46,8 @@ class _$GithubRepoDetailCopyWithImpl<$Res, $Val extends GithubRepoDetail>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GithubRepoDetail
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -69,24 +73,26 @@ class _$GithubRepoDetailCopyWithImpl<$Res, $Val extends GithubRepoDetail>
 }
 
 /// @nodoc
-abstract class _$$_GithubRepoDetailCopyWith<$Res>
+abstract class _$$GithubRepoDetailImplCopyWith<$Res>
     implements $GithubRepoDetailCopyWith<$Res> {
-  factory _$$_GithubRepoDetailCopyWith(
-          _$_GithubRepoDetail value, $Res Function(_$_GithubRepoDetail) then) =
-      __$$_GithubRepoDetailCopyWithImpl<$Res>;
+  factory _$$GithubRepoDetailImplCopyWith(_$GithubRepoDetailImpl value,
+          $Res Function(_$GithubRepoDetailImpl) then) =
+      __$$GithubRepoDetailImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String fullName, String html, bool starred});
 }
 
 /// @nodoc
-class __$$_GithubRepoDetailCopyWithImpl<$Res>
-    extends _$GithubRepoDetailCopyWithImpl<$Res, _$_GithubRepoDetail>
-    implements _$$_GithubRepoDetailCopyWith<$Res> {
-  __$$_GithubRepoDetailCopyWithImpl(
-      _$_GithubRepoDetail _value, $Res Function(_$_GithubRepoDetail) _then)
+class __$$GithubRepoDetailImplCopyWithImpl<$Res>
+    extends _$GithubRepoDetailCopyWithImpl<$Res, _$GithubRepoDetailImpl>
+    implements _$$GithubRepoDetailImplCopyWith<$Res> {
+  __$$GithubRepoDetailImplCopyWithImpl(_$GithubRepoDetailImpl _value,
+      $Res Function(_$GithubRepoDetailImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GithubRepoDetail
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -94,7 +100,7 @@ class __$$_GithubRepoDetailCopyWithImpl<$Res>
     Object? html = null,
     Object? starred = null,
   }) {
-    return _then(_$_GithubRepoDetail(
+    return _then(_$GithubRepoDetailImpl(
       fullName: null == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
@@ -113,8 +119,8 @@ class __$$_GithubRepoDetailCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GithubRepoDetail extends _GithubRepoDetail {
-  const _$_GithubRepoDetail(
+class _$GithubRepoDetailImpl extends _GithubRepoDetail {
+  const _$GithubRepoDetailImpl(
       {required this.fullName, required this.html, required this.starred})
       : super._();
 
@@ -131,10 +137,10 @@ class _$_GithubRepoDetail extends _GithubRepoDetail {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GithubRepoDetail &&
+            other is _$GithubRepoDetailImpl &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
             (identical(other.html, html) || other.html == html) &&
@@ -144,18 +150,21 @@ class _$_GithubRepoDetail extends _GithubRepoDetail {
   @override
   int get hashCode => Object.hash(runtimeType, fullName, html, starred);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GithubRepoDetail
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GithubRepoDetailCopyWith<_$_GithubRepoDetail> get copyWith =>
-      __$$_GithubRepoDetailCopyWithImpl<_$_GithubRepoDetail>(this, _$identity);
+  _$$GithubRepoDetailImplCopyWith<_$GithubRepoDetailImpl> get copyWith =>
+      __$$GithubRepoDetailImplCopyWithImpl<_$GithubRepoDetailImpl>(
+          this, _$identity);
 }
 
 abstract class _GithubRepoDetail extends GithubRepoDetail {
   const factory _GithubRepoDetail(
       {required final String fullName,
       required final String html,
-      required final bool starred}) = _$_GithubRepoDetail;
+      required final bool starred}) = _$GithubRepoDetailImpl;
   const _GithubRepoDetail._() : super._();
 
   @override
@@ -164,8 +173,11 @@ abstract class _GithubRepoDetail extends GithubRepoDetail {
   String get html;
   @override
   bool get starred;
+
+  /// Create a copy of GithubRepoDetail
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_GithubRepoDetailCopyWith<_$_GithubRepoDetail> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GithubRepoDetailImplCopyWith<_$GithubRepoDetailImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

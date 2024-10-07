@@ -12,7 +12,7 @@ part of 'auth_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AuthFailure {
@@ -72,29 +72,36 @@ class _$AuthFailureCopyWithImpl<$Res, $Val extends AuthFailure>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$_ServerCopyWith<$Res> {
-  factory _$$_ServerCopyWith(_$_Server value, $Res Function(_$_Server) then) =
-      __$$_ServerCopyWithImpl<$Res>;
+abstract class _$$ServerImplCopyWith<$Res> {
+  factory _$$ServerImplCopyWith(
+          _$ServerImpl value, $Res Function(_$ServerImpl) then) =
+      __$$ServerImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_ServerCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$_Server>
-    implements _$$_ServerCopyWith<$Res> {
-  __$$_ServerCopyWithImpl(_$_Server _value, $Res Function(_$_Server) _then)
+class __$$ServerImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$ServerImpl>
+    implements _$$ServerImplCopyWith<$Res> {
+  __$$ServerImplCopyWithImpl(
+      _$ServerImpl _value, $Res Function(_$ServerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$_Server(
+    return _then(_$ServerImpl(
       freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -105,8 +112,8 @@ class __$$_ServerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Server implements _Server {
-  const _$_Server([this.message]);
+class _$ServerImpl implements _Server {
+  const _$ServerImpl([this.message]);
 
   @override
   final String? message;
@@ -117,21 +124,23 @@ class _$_Server implements _Server {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Server &&
+            other is _$ServerImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerCopyWith<_$_Server> get copyWith =>
-      __$$_ServerCopyWithImpl<_$_Server>(this, _$identity);
+  _$$ServerImplCopyWith<_$ServerImpl> get copyWith =>
+      __$$ServerImplCopyWithImpl<_$ServerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -197,33 +206,40 @@ class _$_Server implements _Server {
 }
 
 abstract class _Server implements AuthFailure {
-  const factory _Server([final String? message]) = _$_Server;
+  const factory _Server([final String? message]) = _$ServerImpl;
 
   String? get message;
-  @JsonKey(ignore: true)
-  _$$_ServerCopyWith<_$_Server> get copyWith =>
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServerImplCopyWith<_$ServerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_StorageCopyWith<$Res> {
-  factory _$$_StorageCopyWith(
-          _$_Storage value, $Res Function(_$_Storage) then) =
-      __$$_StorageCopyWithImpl<$Res>;
+abstract class _$$StorageImplCopyWith<$Res> {
+  factory _$$StorageImplCopyWith(
+          _$StorageImpl value, $Res Function(_$StorageImpl) then) =
+      __$$StorageImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StorageCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$_Storage>
-    implements _$$_StorageCopyWith<$Res> {
-  __$$_StorageCopyWithImpl(_$_Storage _value, $Res Function(_$_Storage) _then)
+class __$$StorageImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$StorageImpl>
+    implements _$$StorageImplCopyWith<$Res> {
+  __$$StorageImplCopyWithImpl(
+      _$StorageImpl _value, $Res Function(_$StorageImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthFailure
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$_Storage implements _Storage {
-  const _$_Storage();
+class _$StorageImpl implements _Storage {
+  const _$StorageImpl();
 
   @override
   String toString() {
@@ -231,9 +247,9 @@ class _$_Storage implements _Storage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Storage);
+        (other.runtimeType == runtimeType && other is _$StorageImpl);
   }
 
   @override
@@ -303,5 +319,5 @@ class _$_Storage implements _Storage {
 }
 
 abstract class _Storage implements AuthFailure {
-  const factory _Storage() = _$_Storage;
+  const factory _Storage() = _$StorageImpl;
 }

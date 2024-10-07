@@ -12,7 +12,7 @@ part of 'repo_detail_notifier.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$RepoDetailState {
@@ -78,7 +78,9 @@ mixin _$RepoDetailState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RepoDetailStateCopyWith<RepoDetailState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -102,6 +104,8 @@ class _$RepoDetailStateCopyWithImpl<$Res, $Val extends RepoDetailState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -117,29 +121,32 @@ class _$RepoDetailStateCopyWithImpl<$Res, $Val extends RepoDetailState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$InitialImplCopyWith<$Res>
     implements $RepoDetailStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool hasStarredStatusChanged});
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$RepoDetailStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$RepoDetailStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? hasStarredStatusChanged = null,
   }) {
-    return _then(_$_Initial(
+    return _then(_$InitialImpl(
       hasStarredStatusChanged: null == hasStarredStatusChanged
           ? _value.hasStarredStatusChanged
           : hasStarredStatusChanged // ignore: cast_nullable_to_non_nullable
@@ -150,8 +157,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial extends _Initial {
-  const _$_Initial({this.hasStarredStatusChanged = false}) : super._();
+class _$InitialImpl extends _Initial {
+  const _$InitialImpl({this.hasStarredStatusChanged = false}) : super._();
 
   @override
   @JsonKey()
@@ -163,10 +170,10 @@ class _$_Initial extends _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$InitialImpl &&
             (identical(
                     other.hasStarredStatusChanged, hasStarredStatusChanged) ||
                 other.hasStarredStatusChanged == hasStarredStatusChanged));
@@ -175,11 +182,13 @@ class _$_Initial extends _Initial {
   @override
   int get hashCode => Object.hash(runtimeType, hasStarredStatusChanged);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -267,42 +276,47 @@ class _$_Initial extends _Initial {
 }
 
 abstract class _Initial extends RepoDetailState {
-  const factory _Initial({final bool hasStarredStatusChanged}) = _$_Initial;
+  const factory _Initial({final bool hasStarredStatusChanged}) = _$InitialImpl;
   const _Initial._() : super._();
 
   @override
   bool get hasStarredStatusChanged;
+
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadInProgressCopyWith<$Res>
+abstract class _$$LoadInProgressImplCopyWith<$Res>
     implements $RepoDetailStateCopyWith<$Res> {
-  factory _$$_LoadInProgressCopyWith(
-          _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
-      __$$_LoadInProgressCopyWithImpl<$Res>;
+  factory _$$LoadInProgressImplCopyWith(_$LoadInProgressImpl value,
+          $Res Function(_$LoadInProgressImpl) then) =
+      __$$LoadInProgressImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool hasStarredStatusChanged});
 }
 
 /// @nodoc
-class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$RepoDetailStateCopyWithImpl<$Res, _$_LoadInProgress>
-    implements _$$_LoadInProgressCopyWith<$Res> {
-  __$$_LoadInProgressCopyWithImpl(
-      _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
+class __$$LoadInProgressImplCopyWithImpl<$Res>
+    extends _$RepoDetailStateCopyWithImpl<$Res, _$LoadInProgressImpl>
+    implements _$$LoadInProgressImplCopyWith<$Res> {
+  __$$LoadInProgressImplCopyWithImpl(
+      _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? hasStarredStatusChanged = null,
   }) {
-    return _then(_$_LoadInProgress(
+    return _then(_$LoadInProgressImpl(
       hasStarredStatusChanged: null == hasStarredStatusChanged
           ? _value.hasStarredStatusChanged
           : hasStarredStatusChanged // ignore: cast_nullable_to_non_nullable
@@ -313,8 +327,9 @@ class __$$_LoadInProgressCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadInProgress extends _LoadInProgress {
-  const _$_LoadInProgress({this.hasStarredStatusChanged = false}) : super._();
+class _$LoadInProgressImpl extends _LoadInProgress {
+  const _$LoadInProgressImpl({this.hasStarredStatusChanged = false})
+      : super._();
 
   @override
   @JsonKey()
@@ -326,10 +341,10 @@ class _$_LoadInProgress extends _LoadInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadInProgress &&
+            other is _$LoadInProgressImpl &&
             (identical(
                     other.hasStarredStatusChanged, hasStarredStatusChanged) ||
                 other.hasStarredStatusChanged == hasStarredStatusChanged));
@@ -338,11 +353,14 @@ class _$_LoadInProgress extends _LoadInProgress {
   @override
   int get hashCode => Object.hash(runtimeType, hasStarredStatusChanged);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadInProgressCopyWith<_$_LoadInProgress> get copyWith =>
-      __$$_LoadInProgressCopyWithImpl<_$_LoadInProgress>(this, _$identity);
+  _$$LoadInProgressImplCopyWith<_$LoadInProgressImpl> get copyWith =>
+      __$$LoadInProgressImplCopyWithImpl<_$LoadInProgressImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -431,23 +449,26 @@ class _$_LoadInProgress extends _LoadInProgress {
 
 abstract class _LoadInProgress extends RepoDetailState {
   const factory _LoadInProgress({final bool hasStarredStatusChanged}) =
-      _$_LoadInProgress;
+      _$LoadInProgressImpl;
   const _LoadInProgress._() : super._();
 
   @override
   bool get hasStarredStatusChanged;
+
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LoadInProgressCopyWith<_$_LoadInProgress> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadInProgressImplCopyWith<_$LoadInProgressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadSuccessCopyWith<$Res>
+abstract class _$$LoadSuccessImplCopyWith<$Res>
     implements $RepoDetailStateCopyWith<$Res> {
-  factory _$$_LoadSuccessCopyWith(
-          _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
-      __$$_LoadSuccessCopyWithImpl<$Res>;
+  factory _$$LoadSuccessImplCopyWith(
+          _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
+      __$$LoadSuccessImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -457,20 +478,22 @@ abstract class _$$_LoadSuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$RepoDetailStateCopyWithImpl<$Res, _$_LoadSuccess>
-    implements _$$_LoadSuccessCopyWith<$Res> {
-  __$$_LoadSuccessCopyWithImpl(
-      _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
+class __$$LoadSuccessImplCopyWithImpl<$Res>
+    extends _$RepoDetailStateCopyWithImpl<$Res, _$LoadSuccessImpl>
+    implements _$$LoadSuccessImplCopyWith<$Res> {
+  __$$LoadSuccessImplCopyWithImpl(
+      _$LoadSuccessImpl _value, $Res Function(_$LoadSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? repoDetail = null,
     Object? hasStarredStatusChanged = null,
   }) {
-    return _then(_$_LoadSuccess(
+    return _then(_$LoadSuccessImpl(
       null == repoDetail
           ? _value.repoDetail
           : repoDetail // ignore: cast_nullable_to_non_nullable
@@ -482,6 +505,8 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FreshCopyWith<GithubRepoDetail?, $Res> get repoDetail {
@@ -493,8 +518,9 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadSuccess extends _LoadSuccess {
-  const _$_LoadSuccess(this.repoDetail, {this.hasStarredStatusChanged = false})
+class _$LoadSuccessImpl extends _LoadSuccess {
+  const _$LoadSuccessImpl(this.repoDetail,
+      {this.hasStarredStatusChanged = false})
       : super._();
 
   @override
@@ -509,10 +535,10 @@ class _$_LoadSuccess extends _LoadSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadSuccess &&
+            other is _$LoadSuccessImpl &&
             (identical(other.repoDetail, repoDetail) ||
                 other.repoDetail == repoDetail) &&
             (identical(
@@ -524,11 +550,13 @@ class _$_LoadSuccess extends _LoadSuccess {
   int get hashCode =>
       Object.hash(runtimeType, repoDetail, hasStarredStatusChanged);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
-      __$$_LoadSuccessCopyWithImpl<_$_LoadSuccess>(this, _$identity);
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
+      __$$LoadSuccessImplCopyWithImpl<_$LoadSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -617,24 +645,27 @@ class _$_LoadSuccess extends _LoadSuccess {
 
 abstract class _LoadSuccess extends RepoDetailState {
   const factory _LoadSuccess(final Fresh<GithubRepoDetail?> repoDetail,
-      {final bool hasStarredStatusChanged}) = _$_LoadSuccess;
+      {final bool hasStarredStatusChanged}) = _$LoadSuccessImpl;
   const _LoadSuccess._() : super._();
 
   Fresh<GithubRepoDetail?> get repoDetail;
   @override
   bool get hasStarredStatusChanged;
+
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadFailureCopyWith<$Res>
+abstract class _$$LoadFailureImplCopyWith<$Res>
     implements $RepoDetailStateCopyWith<$Res> {
-  factory _$$_LoadFailureCopyWith(
-          _$_LoadFailure value, $Res Function(_$_LoadFailure) then) =
-      __$$_LoadFailureCopyWithImpl<$Res>;
+  factory _$$LoadFailureImplCopyWith(
+          _$LoadFailureImpl value, $Res Function(_$LoadFailureImpl) then) =
+      __$$LoadFailureImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({GithubFailure failure, bool hasStarredStatusChanged});
@@ -643,20 +674,22 @@ abstract class _$$_LoadFailureCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoadFailureCopyWithImpl<$Res>
-    extends _$RepoDetailStateCopyWithImpl<$Res, _$_LoadFailure>
-    implements _$$_LoadFailureCopyWith<$Res> {
-  __$$_LoadFailureCopyWithImpl(
-      _$_LoadFailure _value, $Res Function(_$_LoadFailure) _then)
+class __$$LoadFailureImplCopyWithImpl<$Res>
+    extends _$RepoDetailStateCopyWithImpl<$Res, _$LoadFailureImpl>
+    implements _$$LoadFailureImplCopyWith<$Res> {
+  __$$LoadFailureImplCopyWithImpl(
+      _$LoadFailureImpl _value, $Res Function(_$LoadFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? failure = null,
     Object? hasStarredStatusChanged = null,
   }) {
-    return _then(_$_LoadFailure(
+    return _then(_$LoadFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -668,6 +701,8 @@ class __$$_LoadFailureCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GithubFailureCopyWith<$Res> get failure {
@@ -679,8 +714,8 @@ class __$$_LoadFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadFailure extends _LoadFailure {
-  const _$_LoadFailure(this.failure, {this.hasStarredStatusChanged = false})
+class _$LoadFailureImpl extends _LoadFailure {
+  const _$LoadFailureImpl(this.failure, {this.hasStarredStatusChanged = false})
       : super._();
 
   @override
@@ -695,10 +730,10 @@ class _$_LoadFailure extends _LoadFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadFailure &&
+            other is _$LoadFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(
                     other.hasStarredStatusChanged, hasStarredStatusChanged) ||
@@ -709,11 +744,13 @@ class _$_LoadFailure extends _LoadFailure {
   int get hashCode =>
       Object.hash(runtimeType, failure, hasStarredStatusChanged);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
-      __$$_LoadFailureCopyWithImpl<_$_LoadFailure>(this, _$identity);
+  _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
+      __$$LoadFailureImplCopyWithImpl<_$LoadFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -802,14 +839,17 @@ class _$_LoadFailure extends _LoadFailure {
 
 abstract class _LoadFailure extends RepoDetailState {
   const factory _LoadFailure(final GithubFailure failure,
-      {final bool hasStarredStatusChanged}) = _$_LoadFailure;
+      {final bool hasStarredStatusChanged}) = _$LoadFailureImpl;
   const _LoadFailure._() : super._();
 
   GithubFailure get failure;
   @override
   bool get hasStarredStatusChanged;
+
+  /// Create a copy of RepoDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

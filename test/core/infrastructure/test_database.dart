@@ -1,8 +1,6 @@
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:repo_viewer/core/infrastructure/sembast_database.dart';
-import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_memory.dart';
 
 class TestSembastDatabase extends Mock implements SembastDatabase {

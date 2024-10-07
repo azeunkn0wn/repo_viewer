@@ -44,7 +44,7 @@ class RepoDetailRemoteService {
       } else {
         throw RestApiException(response.statusCode);
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (e.isNoConnectionError) {
         return const RemoteResponse.noConnection();
       } else if (e.response != null) {
@@ -78,7 +78,7 @@ class RepoDetailRemoteService {
       } else {
         throw RestApiException(response.statusCode);
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (e.isNoConnectionError) {
         return null;
       } else if (e.response != null) {
@@ -109,7 +109,7 @@ class RepoDetailRemoteService {
       } else {
         throw RestApiException(response.statusCode);
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (e.isNoConnectionError) {
         return null;
       } else if (e.response != null) {

@@ -70,14 +70,14 @@ class _RepoDetailPageState extends ConsumerState<RepoDetailPage> {
       },
     );
 
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      canPop: true,
+      onPopInvokedWithResult: (_, __) async {
         if (state.hasStarredStatusChanged) {
           ref
               .read(starredReposNotifierProvider.notifier)
               .getFirstStarredReposPage();
         }
-        return true;
       },
       child: Scaffold(
         appBar: AppBar(

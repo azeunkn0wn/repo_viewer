@@ -27,12 +27,6 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    SignInRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const SignInPage(),
-      );
-    },
     RepoDetailRoute.name: (routeData) {
       final args = routeData.argsAs<RepoDetailRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -53,16 +47,22 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    StarredReposRoute.name: (routeData) {
+    SignInRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const StarredReposPage(),
+        child: const SignInPage(),
       );
     },
     SplashRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SplashPage(),
+      );
+    },
+    StarredReposRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const StarredReposPage(),
       );
     },
   };
@@ -110,20 +110,6 @@ class AuthorizationRouteArgs {
   String toString() {
     return 'AuthorizationRouteArgs{key: $key, authorizationUrl: $authorizationUrl, onAuthorizationCodeRedirectAttempt: $onAuthorizationCodeRedirectAttempt}';
   }
-}
-
-/// generated route for
-/// [SignInPage]
-class SignInRoute extends PageRouteInfo<void> {
-  const SignInRoute({List<PageRouteInfo>? children})
-      : super(
-          SignInRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SignInRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -203,15 +189,15 @@ class SearchedReposRouteArgs {
 }
 
 /// generated route for
-/// [StarredReposPage]
-class StarredReposRoute extends PageRouteInfo<void> {
-  const StarredReposRoute({List<PageRouteInfo>? children})
+/// [SignInPage]
+class SignInRoute extends PageRouteInfo<void> {
+  const SignInRoute({List<PageRouteInfo>? children})
       : super(
-          StarredReposRoute.name,
+          SignInRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'StarredReposRoute';
+  static const String name = 'SignInRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -226,6 +212,20 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [StarredReposPage]
+class StarredReposRoute extends PageRouteInfo<void> {
+  const StarredReposRoute({List<PageRouteInfo>? children})
+      : super(
+          StarredReposRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'StarredReposRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

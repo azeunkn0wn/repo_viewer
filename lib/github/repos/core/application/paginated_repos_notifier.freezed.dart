@@ -12,7 +12,7 @@ part of 'paginated_repos_notifier.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PaginatedReposState {
@@ -79,7 +79,9 @@ mixin _$PaginatedReposState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PaginatedReposStateCopyWith<PaginatedReposState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -105,6 +107,8 @@ class _$PaginatedReposStateCopyWithImpl<$Res, $Val extends PaginatedReposState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,6 +122,8 @@ class _$PaginatedReposStateCopyWithImpl<$Res, $Val extends PaginatedReposState>
     ) as $Val);
   }
 
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FreshCopyWith<List<GithubRepo>, $Res> get repos {
@@ -128,11 +134,11 @@ class _$PaginatedReposStateCopyWithImpl<$Res, $Val extends PaginatedReposState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$InitialImplCopyWith<$Res>
     implements $PaginatedReposStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Fresh<List<GithubRepo>> repos});
@@ -142,18 +148,21 @@ abstract class _$$_InitialCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$PaginatedReposStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$PaginatedReposStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? repos = null,
   }) {
-    return _then(_$_Initial(
+    return _then(_$InitialImpl(
       null == repos
           ? _value.repos
           : repos // ignore: cast_nullable_to_non_nullable
@@ -164,8 +173,8 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial extends _Initial {
-  const _$_Initial(this.repos) : super._();
+class _$InitialImpl extends _Initial {
+  const _$InitialImpl(this.repos) : super._();
 
   @override
   final Fresh<List<GithubRepo>> repos;
@@ -176,21 +185,23 @@ class _$_Initial extends _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$InitialImpl &&
             (identical(other.repos, repos) || other.repos == repos));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, repos);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -279,23 +290,26 @@ class _$_Initial extends _Initial {
 }
 
 abstract class _Initial extends PaginatedReposState {
-  const factory _Initial(final Fresh<List<GithubRepo>> repos) = _$_Initial;
+  const factory _Initial(final Fresh<List<GithubRepo>> repos) = _$InitialImpl;
   const _Initial._() : super._();
 
   @override
   Fresh<List<GithubRepo>> get repos;
+
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadInProgressCopyWith<$Res>
+abstract class _$$LoadInProgressImplCopyWith<$Res>
     implements $PaginatedReposStateCopyWith<$Res> {
-  factory _$$_LoadInProgressCopyWith(
-          _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
-      __$$_LoadInProgressCopyWithImpl<$Res>;
+  factory _$$LoadInProgressImplCopyWith(_$LoadInProgressImpl value,
+          $Res Function(_$LoadInProgressImpl) then) =
+      __$$LoadInProgressImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Fresh<List<GithubRepo>> repos, int itemsPerPage});
@@ -305,20 +319,22 @@ abstract class _$$_LoadInProgressCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$PaginatedReposStateCopyWithImpl<$Res, _$_LoadInProgress>
-    implements _$$_LoadInProgressCopyWith<$Res> {
-  __$$_LoadInProgressCopyWithImpl(
-      _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
+class __$$LoadInProgressImplCopyWithImpl<$Res>
+    extends _$PaginatedReposStateCopyWithImpl<$Res, _$LoadInProgressImpl>
+    implements _$$LoadInProgressImplCopyWith<$Res> {
+  __$$LoadInProgressImplCopyWithImpl(
+      _$LoadInProgressImpl _value, $Res Function(_$LoadInProgressImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? repos = null,
     Object? itemsPerPage = null,
   }) {
-    return _then(_$_LoadInProgress(
+    return _then(_$LoadInProgressImpl(
       null == repos
           ? _value.repos
           : repos // ignore: cast_nullable_to_non_nullable
@@ -333,8 +349,8 @@ class __$$_LoadInProgressCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadInProgress extends _LoadInProgress {
-  const _$_LoadInProgress(this.repos, this.itemsPerPage) : super._();
+class _$LoadInProgressImpl extends _LoadInProgress {
+  const _$LoadInProgressImpl(this.repos, this.itemsPerPage) : super._();
 
   @override
   final Fresh<List<GithubRepo>> repos;
@@ -347,10 +363,10 @@ class _$_LoadInProgress extends _LoadInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadInProgress &&
+            other is _$LoadInProgressImpl &&
             (identical(other.repos, repos) || other.repos == repos) &&
             (identical(other.itemsPerPage, itemsPerPage) ||
                 other.itemsPerPage == itemsPerPage));
@@ -359,11 +375,14 @@ class _$_LoadInProgress extends _LoadInProgress {
   @override
   int get hashCode => Object.hash(runtimeType, repos, itemsPerPage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadInProgressCopyWith<_$_LoadInProgress> get copyWith =>
-      __$$_LoadInProgressCopyWithImpl<_$_LoadInProgress>(this, _$identity);
+  _$$LoadInProgressImplCopyWith<_$LoadInProgressImpl> get copyWith =>
+      __$$LoadInProgressImplCopyWithImpl<_$LoadInProgressImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -454,24 +473,27 @@ class _$_LoadInProgress extends _LoadInProgress {
 abstract class _LoadInProgress extends PaginatedReposState {
   const factory _LoadInProgress(
           final Fresh<List<GithubRepo>> repos, final int itemsPerPage) =
-      _$_LoadInProgress;
+      _$LoadInProgressImpl;
   const _LoadInProgress._() : super._();
 
   @override
   Fresh<List<GithubRepo>> get repos;
   int get itemsPerPage;
+
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LoadInProgressCopyWith<_$_LoadInProgress> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadInProgressImplCopyWith<_$LoadInProgressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadSuccessCopyWith<$Res>
+abstract class _$$LoadSuccessImplCopyWith<$Res>
     implements $PaginatedReposStateCopyWith<$Res> {
-  factory _$$_LoadSuccessCopyWith(
-          _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
-      __$$_LoadSuccessCopyWithImpl<$Res>;
+  factory _$$LoadSuccessImplCopyWith(
+          _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
+      __$$LoadSuccessImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Fresh<List<GithubRepo>> repos, bool isNextPageAvailable});
@@ -481,20 +503,22 @@ abstract class _$$_LoadSuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$PaginatedReposStateCopyWithImpl<$Res, _$_LoadSuccess>
-    implements _$$_LoadSuccessCopyWith<$Res> {
-  __$$_LoadSuccessCopyWithImpl(
-      _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
+class __$$LoadSuccessImplCopyWithImpl<$Res>
+    extends _$PaginatedReposStateCopyWithImpl<$Res, _$LoadSuccessImpl>
+    implements _$$LoadSuccessImplCopyWith<$Res> {
+  __$$LoadSuccessImplCopyWithImpl(
+      _$LoadSuccessImpl _value, $Res Function(_$LoadSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? repos = null,
     Object? isNextPageAvailable = null,
   }) {
-    return _then(_$_LoadSuccess(
+    return _then(_$LoadSuccessImpl(
       null == repos
           ? _value.repos
           : repos // ignore: cast_nullable_to_non_nullable
@@ -509,8 +533,8 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadSuccess extends _LoadSuccess {
-  const _$_LoadSuccess(this.repos, {required this.isNextPageAvailable})
+class _$LoadSuccessImpl extends _LoadSuccess {
+  const _$LoadSuccessImpl(this.repos, {required this.isNextPageAvailable})
       : super._();
 
   @override
@@ -524,10 +548,10 @@ class _$_LoadSuccess extends _LoadSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadSuccess &&
+            other is _$LoadSuccessImpl &&
             (identical(other.repos, repos) || other.repos == repos) &&
             (identical(other.isNextPageAvailable, isNextPageAvailable) ||
                 other.isNextPageAvailable == isNextPageAvailable));
@@ -536,11 +560,13 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   int get hashCode => Object.hash(runtimeType, repos, isNextPageAvailable);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
-      __$$_LoadSuccessCopyWithImpl<_$_LoadSuccess>(this, _$identity);
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
+      __$$LoadSuccessImplCopyWithImpl<_$LoadSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -630,24 +656,27 @@ class _$_LoadSuccess extends _LoadSuccess {
 
 abstract class _LoadSuccess extends PaginatedReposState {
   const factory _LoadSuccess(final Fresh<List<GithubRepo>> repos,
-      {required final bool isNextPageAvailable}) = _$_LoadSuccess;
+      {required final bool isNextPageAvailable}) = _$LoadSuccessImpl;
   const _LoadSuccess._() : super._();
 
   @override
   Fresh<List<GithubRepo>> get repos;
   bool get isNextPageAvailable;
+
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadFailureCopyWith<$Res>
+abstract class _$$LoadFailureImplCopyWith<$Res>
     implements $PaginatedReposStateCopyWith<$Res> {
-  factory _$$_LoadFailureCopyWith(
-          _$_LoadFailure value, $Res Function(_$_LoadFailure) then) =
-      __$$_LoadFailureCopyWithImpl<$Res>;
+  factory _$$LoadFailureImplCopyWith(
+          _$LoadFailureImpl value, $Res Function(_$LoadFailureImpl) then) =
+      __$$LoadFailureImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Fresh<List<GithubRepo>> repos, GithubFailure failure});
@@ -658,20 +687,22 @@ abstract class _$$_LoadFailureCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoadFailureCopyWithImpl<$Res>
-    extends _$PaginatedReposStateCopyWithImpl<$Res, _$_LoadFailure>
-    implements _$$_LoadFailureCopyWith<$Res> {
-  __$$_LoadFailureCopyWithImpl(
-      _$_LoadFailure _value, $Res Function(_$_LoadFailure) _then)
+class __$$LoadFailureImplCopyWithImpl<$Res>
+    extends _$PaginatedReposStateCopyWithImpl<$Res, _$LoadFailureImpl>
+    implements _$$LoadFailureImplCopyWith<$Res> {
+  __$$LoadFailureImplCopyWithImpl(
+      _$LoadFailureImpl _value, $Res Function(_$LoadFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? repos = null,
     Object? failure = null,
   }) {
-    return _then(_$_LoadFailure(
+    return _then(_$LoadFailureImpl(
       null == repos
           ? _value.repos
           : repos // ignore: cast_nullable_to_non_nullable
@@ -683,6 +714,8 @@ class __$$_LoadFailureCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GithubFailureCopyWith<$Res> get failure {
@@ -694,8 +727,8 @@ class __$$_LoadFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadFailure extends _LoadFailure {
-  const _$_LoadFailure(this.repos, this.failure) : super._();
+class _$LoadFailureImpl extends _LoadFailure {
+  const _$LoadFailureImpl(this.repos, this.failure) : super._();
 
   @override
   final Fresh<List<GithubRepo>> repos;
@@ -708,10 +741,10 @@ class _$_LoadFailure extends _LoadFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadFailure &&
+            other is _$LoadFailureImpl &&
             (identical(other.repos, repos) || other.repos == repos) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
@@ -719,11 +752,13 @@ class _$_LoadFailure extends _LoadFailure {
   @override
   int get hashCode => Object.hash(runtimeType, repos, failure);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
-      __$$_LoadFailureCopyWithImpl<_$_LoadFailure>(this, _$identity);
+  _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
+      __$$LoadFailureImplCopyWithImpl<_$LoadFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -814,14 +849,17 @@ class _$_LoadFailure extends _LoadFailure {
 abstract class _LoadFailure extends PaginatedReposState {
   const factory _LoadFailure(
           final Fresh<List<GithubRepo>> repos, final GithubFailure failure) =
-      _$_LoadFailure;
+      _$LoadFailureImpl;
   const _LoadFailure._() : super._();
 
   @override
   Fresh<List<GithubRepo>> get repos;
   GithubFailure get failure;
+
+  /// Create a copy of PaginatedReposState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LoadFailureCopyWith<_$_LoadFailure> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadFailureImplCopyWith<_$LoadFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

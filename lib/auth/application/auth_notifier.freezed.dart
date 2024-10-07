@@ -12,7 +12,7 @@ part of 'auth_notifier.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AuthState {
@@ -83,27 +83,34 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$_Initial extends _Initial {
-  const _$_Initial() : super._();
+class _$InitialImpl extends _Initial {
+  const _$InitialImpl() : super._();
 
   @override
   String toString() {
@@ -111,9 +118,9 @@ class _$_Initial extends _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -195,30 +202,33 @@ class _$_Initial extends _Initial {
 }
 
 abstract class _Initial extends AuthState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
   const _Initial._() : super._();
 }
 
 /// @nodoc
-abstract class _$$_unauthenticatedCopyWith<$Res> {
-  factory _$$_unauthenticatedCopyWith(
-          _$_unauthenticated value, $Res Function(_$_unauthenticated) then) =
-      __$$_unauthenticatedCopyWithImpl<$Res>;
+abstract class _$$unauthenticatedImplCopyWith<$Res> {
+  factory _$$unauthenticatedImplCopyWith(_$unauthenticatedImpl value,
+          $Res Function(_$unauthenticatedImpl) then) =
+      __$$unauthenticatedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_unauthenticatedCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_unauthenticated>
-    implements _$$_unauthenticatedCopyWith<$Res> {
-  __$$_unauthenticatedCopyWithImpl(
-      _$_unauthenticated _value, $Res Function(_$_unauthenticated) _then)
+class __$$unauthenticatedImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$unauthenticatedImpl>
+    implements _$$unauthenticatedImplCopyWith<$Res> {
+  __$$unauthenticatedImplCopyWithImpl(
+      _$unauthenticatedImpl _value, $Res Function(_$unauthenticatedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$_unauthenticated extends _unauthenticated {
-  const _$_unauthenticated() : super._();
+class _$unauthenticatedImpl extends _unauthenticated {
+  const _$unauthenticatedImpl() : super._();
 
   @override
   String toString() {
@@ -226,9 +236,9 @@ class _$_unauthenticated extends _unauthenticated {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_unauthenticated);
+        (other.runtimeType == runtimeType && other is _$unauthenticatedImpl);
   }
 
   @override
@@ -310,30 +320,33 @@ class _$_unauthenticated extends _unauthenticated {
 }
 
 abstract class _unauthenticated extends AuthState {
-  const factory _unauthenticated() = _$_unauthenticated;
+  const factory _unauthenticated() = _$unauthenticatedImpl;
   const _unauthenticated._() : super._();
 }
 
 /// @nodoc
-abstract class _$$_authenticatedCopyWith<$Res> {
-  factory _$$_authenticatedCopyWith(
-          _$_authenticated value, $Res Function(_$_authenticated) then) =
-      __$$_authenticatedCopyWithImpl<$Res>;
+abstract class _$$authenticatedImplCopyWith<$Res> {
+  factory _$$authenticatedImplCopyWith(
+          _$authenticatedImpl value, $Res Function(_$authenticatedImpl) then) =
+      __$$authenticatedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_authenticatedCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_authenticated>
-    implements _$$_authenticatedCopyWith<$Res> {
-  __$$_authenticatedCopyWithImpl(
-      _$_authenticated _value, $Res Function(_$_authenticated) _then)
+class __$$authenticatedImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$authenticatedImpl>
+    implements _$$authenticatedImplCopyWith<$Res> {
+  __$$authenticatedImplCopyWithImpl(
+      _$authenticatedImpl _value, $Res Function(_$authenticatedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$_authenticated extends _authenticated {
-  const _$_authenticated() : super._();
+class _$authenticatedImpl extends _authenticated {
+  const _$authenticatedImpl() : super._();
 
   @override
   String toString() {
@@ -341,9 +354,9 @@ class _$_authenticated extends _authenticated {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_authenticated);
+        (other.runtimeType == runtimeType && other is _$authenticatedImpl);
   }
 
   @override
@@ -425,15 +438,15 @@ class _$_authenticated extends _authenticated {
 }
 
 abstract class _authenticated extends AuthState {
-  const factory _authenticated() = _$_authenticated;
+  const factory _authenticated() = _$authenticatedImpl;
   const _authenticated._() : super._();
 }
 
 /// @nodoc
-abstract class _$$_failureCopyWith<$Res> {
-  factory _$$_failureCopyWith(
-          _$_failure value, $Res Function(_$_failure) then) =
-      __$$_failureCopyWithImpl<$Res>;
+abstract class _$$failureImplCopyWith<$Res> {
+  factory _$$failureImplCopyWith(
+          _$failureImpl value, $Res Function(_$failureImpl) then) =
+      __$$failureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AuthFailure failure});
 
@@ -441,18 +454,21 @@ abstract class _$$_failureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_failureCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_failure>
-    implements _$$_failureCopyWith<$Res> {
-  __$$_failureCopyWithImpl(_$_failure _value, $Res Function(_$_failure) _then)
+class __$$failureImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$failureImpl>
+    implements _$$failureImplCopyWith<$Res> {
+  __$$failureImplCopyWithImpl(
+      _$failureImpl _value, $Res Function(_$failureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_failure(
+    return _then(_$failureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -460,6 +476,8 @@ class __$$_failureCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AuthFailureCopyWith<$Res> get failure {
@@ -471,8 +489,8 @@ class __$$_failureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_failure extends _failure {
-  const _$_failure(this.failure) : super._();
+class _$failureImpl extends _failure {
+  const _$failureImpl(this.failure) : super._();
 
   @override
   final AuthFailure failure;
@@ -483,21 +501,23 @@ class _$_failure extends _failure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_failure &&
+            other is _$failureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, failure);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_failureCopyWith<_$_failure> get copyWith =>
-      __$$_failureCopyWithImpl<_$_failure>(this, _$identity);
+  _$$failureImplCopyWith<_$failureImpl> get copyWith =>
+      __$$failureImplCopyWithImpl<_$failureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -575,11 +595,14 @@ class _$_failure extends _failure {
 }
 
 abstract class _failure extends AuthState {
-  const factory _failure(final AuthFailure failure) = _$_failure;
+  const factory _failure(final AuthFailure failure) = _$failureImpl;
   const _failure._() : super._();
 
   AuthFailure get failure;
-  @JsonKey(ignore: true)
-  _$$_failureCopyWith<_$_failure> get copyWith =>
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$failureImplCopyWith<_$failureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
