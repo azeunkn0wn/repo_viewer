@@ -24,7 +24,7 @@ class SignInPage extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Icon(
+                  Icon(
                     MdiIcons.github,
                     size: 150,
                   ),

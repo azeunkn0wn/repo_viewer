@@ -94,7 +94,7 @@ class _SearchBarState extends ConsumerState<CustomSearchBar> {
         ),
         FloatingSearchBarAction(
           child: IconButton(
-            icon: const Icon(MdiIcons.logoutVariant),
+            icon: Icon(MdiIcons.logoutVariant),
             onPressed: () {
               widget.onSignOutButtonPressed();
             },

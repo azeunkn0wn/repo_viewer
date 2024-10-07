@@ -16,7 +16,7 @@ class NoResultsDisplay extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(
+          Icon(
             MdiIcons.emoticonPoop,
             size: 96,
             color: Color(0xFF885742),

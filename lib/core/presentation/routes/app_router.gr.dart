@@ -9,65 +9,6 @@
 
 part of 'app_router.dart';
 
-abstract class _$AppRouter extends RootStackRouter {
-  // ignore: unused_element
-  _$AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    AuthorizationRoute.name: (routeData) {
-      final args = routeData.argsAs<AuthorizationRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: AuthorizationPage(
-          key: args.key,
-          authorizationUrl: args.authorizationUrl,
-          onAuthorizationCodeRedirectAttempt:
-              args.onAuthorizationCodeRedirectAttempt,
-        ),
-      );
-    },
-    RepoDetailRoute.name: (routeData) {
-      final args = routeData.argsAs<RepoDetailRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: RepoDetailPage(
-          key: args.key,
-          repo: args.repo,
-        ),
-      );
-    },
-    SearchedReposRoute.name: (routeData) {
-      final args = routeData.argsAs<SearchedReposRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: SearchedReposPage(
-          key: args.key,
-          searchTerm: args.searchTerm,
-        ),
-      );
-    },
-    SignInRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const SignInPage(),
-      );
-    },
-    SplashRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const SplashPage(),
-      );
-    },
-    StarredReposRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const StarredReposPage(),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [AuthorizationPage]
 class AuthorizationRoute extends PageRouteInfo<AuthorizationRouteArgs> {
@@ -89,8 +30,18 @@ class AuthorizationRoute extends PageRouteInfo<AuthorizationRouteArgs> {
 
   static const String name = 'AuthorizationRoute';
 
-  static const PageInfo<AuthorizationRouteArgs> page =
-      PageInfo<AuthorizationRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AuthorizationRouteArgs>();
+      return AuthorizationPage(
+        key: args.key,
+        authorizationUrl: args.authorizationUrl,
+        onAuthorizationCodeRedirectAttempt:
+            args.onAuthorizationCodeRedirectAttempt,
+      );
+    },
+  );
 }
 
 class AuthorizationRouteArgs {
@@ -130,8 +81,16 @@ class RepoDetailRoute extends PageRouteInfo<RepoDetailRouteArgs> {
 
   static const String name = 'RepoDetailRoute';
 
-  static const PageInfo<RepoDetailRouteArgs> page =
-      PageInfo<RepoDetailRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<RepoDetailRouteArgs>();
+      return RepoDetailPage(
+        key: args.key,
+        repo: args.repo,
+      );
+    },
+  );
 }
 
 class RepoDetailRouteArgs {
@@ -168,8 +127,16 @@ class SearchedReposRoute extends PageRouteInfo<SearchedReposRouteArgs> {
 
   static const String name = 'SearchedReposRoute';
 
-  static const PageInfo<SearchedReposRouteArgs> page =
-      PageInfo<SearchedReposRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<SearchedReposRouteArgs>();
+      return SearchedReposPage(
+        key: args.key,
+        searchTerm: args.searchTerm,
+      );
+    },
+  );
 }
 
 class SearchedReposRouteArgs {
@@ -199,7 +166,12 @@ class SignInRoute extends PageRouteInfo<void> {
 
   static const String name = 'SignInRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SignInPage();
+    },
+  );
 }
 
 /// generated route for
@@ -213,7 +185,12 @@ class SplashRoute extends PageRouteInfo<void> {
 
   static const String name = 'SplashRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SplashPage();
+    },
+  );
 }
 
 /// generated route for
@@ -227,5 +204,10 @@ class StarredReposRoute extends PageRouteInfo<void> {
 
   static const String name = 'StarredReposRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const StarredReposPage();
+    },
+  );
 }

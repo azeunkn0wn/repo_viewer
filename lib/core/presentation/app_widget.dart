@@ -5,7 +5,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:repo_viewer/auth/application/auth_notifier.dart';
 import 'package:repo_viewer/auth/shared/providers.dart';
 import 'package:repo_viewer/core/presentation/routes/app_router.dart';
-
 import 'package:repo_viewer/core/shared/providers.dart';
 
 final initializationProvider = FutureProvider<Unit>((ref) async {
@@ -57,9 +56,9 @@ class AppWidget extends ConsumerWidget {
     return MaterialApp.router(
       title: 'Repo Viewer',
       theme: _setUpThemeData(),
+      routerConfig: appRouter.config(),
       // routerDelegate: appRouter.delegate(),
       // routeInformationParser: appRouter.defaultRouteParser(),
-      routerConfig: appRouter.config(),
     );
   }
 }
