@@ -10,7 +10,7 @@ Future<void> showNoConnectionToast(
       message,
       style: const TextStyle(color: Colors.white, fontSize: 16),
     ),
-    backgroundColor: Colors.black.withOpacity(0.7),
+    backgroundColor: Colors.black.withValues(alpha: 0.7),
     // borderRadius: BorderRadius.circular(8),
     margin: const EdgeInsets.all(8),
   );
