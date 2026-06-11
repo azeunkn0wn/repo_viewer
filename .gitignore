@@ -48,6 +48,5 @@ config/app_config.json
 .env*
 !.env.example
 
-.vscode
 
 .secrets/
