@@ -1,4 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hooks_riverpod/legacy.dart';
 import 'package:repo_viewer/core/shared/providers.dart';
 import 'package:repo_viewer/github/detail/application/repo_detail_notifier.dart';
 import 'package:repo_viewer/github/detail/infrastructure/repo_detail_local_service.dart';

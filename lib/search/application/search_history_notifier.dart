@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hooks_riverpod/legacy.dart';
 import 'package:repo_viewer/search/infrastructure/search_history_repository.dart';
 
 part 'search_history_notifier.freezed.dart';
 
 @freezed
-class SearchHistoryState with _$SearchHistoryState {
+sealed class SearchHistoryState with _$SearchHistoryState {
   const SearchHistoryState._();
   const factory SearchHistoryState.loading(List<String> terms) = _Loading;
   const factory SearchHistoryState.data(List<String> terms) = _Data;

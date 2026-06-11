@@ -7,7 +7,7 @@ part 'github_repo_detail_dto.freezed.dart';
 part 'github_repo_detail_dto.g.dart';
 
 @freezed
-class GithubRepoDetailDTO with _$GithubRepoDetailDTO {
+abstract class GithubRepoDetailDTO with _$GithubRepoDetailDTO {
   const GithubRepoDetailDTO._();
   const factory GithubRepoDetailDTO({
     required String fullName,

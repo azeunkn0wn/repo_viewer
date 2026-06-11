@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hooks_riverpod/legacy.dart';
 import 'package:repo_viewer/core/domain/fresh.dart';
 import 'package:repo_viewer/github/core/domain/github_failure.dart';
 import 'package:repo_viewer/github/core/domain/github_repo.dart';
@@ -12,7 +12,7 @@ typedef RepositoryGetter
     = Future<Either<GithubFailure, Fresh<List<GithubRepo>>>> Function(int page);
 
 @freezed
-class PaginatedReposState with _$PaginatedReposState {
+sealed class PaginatedReposState with _$PaginatedReposState {
   const PaginatedReposState._();
   const factory PaginatedReposState.initial(
     Fresh<List<GithubRepo>> repos,

@@ -1,13 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hooks_riverpod/legacy.dart';
 import 'package:repo_viewer/auth/domain/auth_failure.dart';
-
 import 'package:repo_viewer/auth/infrastructure/github_authenticator.dart';
 
 part 'auth_notifier.freezed.dart';
 
 @freezed
-class AuthState with _$AuthState {
+sealed class AuthState with _$AuthState {
   const AuthState._();
   const factory AuthState.initial() = _Initial;
   const factory AuthState.unauthenticated() = _unauthenticated;

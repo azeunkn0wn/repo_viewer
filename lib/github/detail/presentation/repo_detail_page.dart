@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:repo_viewer/core/presentation/toast.dart';
 import 'package:repo_viewer/github/core/domain/github_repo.dart';
 import 'package:repo_viewer/github/core/presentation/no_results_displayed.dart';
@@ -116,7 +115,7 @@ class _RepoDetailPageState extends ConsumerState<RepoDetailPage> {
                 return IconButton(
                   icon: Icon(
                     !state.repoDetail.isFresh
-                        ? MdiIcons.starRemoveOutline
+                        ? Icons.star_border
                         : state.repoDetail.entity?.starred == true
                             ? Icons.star
                             : Icons.star_outline,

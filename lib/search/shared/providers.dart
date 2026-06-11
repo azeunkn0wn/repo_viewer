@@ -1,4 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hooks_riverpod/legacy.dart';
 import 'package:repo_viewer/core/shared/providers.dart';
 import 'package:repo_viewer/search/application/search_history_notifier.dart';
 import 'package:repo_viewer/search/infrastructure/search_history_repository.dart';

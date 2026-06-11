@@ -10,7 +10,7 @@ String _descriptionFromJson(Object? json) {
 }
 
 @freezed
-class GithubRepoDTO with _$GithubRepoDTO {
+abstract class GithubRepoDTO with _$GithubRepoDTO {
   const GithubRepoDTO._();
   const factory GithubRepoDTO({
     required UserDTO owner,

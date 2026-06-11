@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hooks_riverpod/legacy.dart';
 import 'package:repo_viewer/core/domain/fresh.dart';
 import 'package:repo_viewer/github/core/domain/github_failure.dart';
 import 'package:repo_viewer/github/detail/domain/github_repo_detail.dart';
@@ -9,7 +9,7 @@ import 'package:repo_viewer/github/detail/infrastructure/repo_detail_repository.
 part 'repo_detail_notifier.freezed.dart';
 
 @freezed
-class RepoDetailState with _$RepoDetailState {
+sealed class RepoDetailState with _$RepoDetailState {
   const RepoDetailState._();
   const factory RepoDetailState.initial({
     @Default(false) bool hasStarredStatusChanged,

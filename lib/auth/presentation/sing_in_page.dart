@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:repo_viewer/auth/shared/providers.dart';
 
 import '../../core/presentation/routes/app_router.dart';
@@ -24,8 +24,8 @@ class SignInPage extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Icon(
-                    MdiIcons.github,
+                  FaIcon(
+                    FontAwesomeIcons.github,
                     size: 150,
                   ),
                   const SizedBox(

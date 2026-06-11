@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NoResultsDisplay extends StatelessWidget {
   final String message;
@@ -16,8 +16,8 @@ class NoResultsDisplay extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            MdiIcons.emoticonPoop,
+          FaIcon(
+            FontAwesomeIcons.poo,
             size: 96,
             color: Color(0xFF885742),
           ),

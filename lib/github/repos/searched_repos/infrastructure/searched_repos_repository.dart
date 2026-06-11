@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:repo_viewer/core/domain/fresh.dart';
 import 'package:repo_viewer/core/infrastructure/network_exceptions.dart';
+import 'package:repo_viewer/core/infrastructure/remote_response.dart';
 import 'package:repo_viewer/github/core/domain/github_failure.dart';
 import 'package:repo_viewer/github/core/domain/github_repo.dart';
 import 'package:repo_viewer/github/repos/core/infrastructure/extensions.dart';
